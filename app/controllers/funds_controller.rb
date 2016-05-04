@@ -39,19 +39,21 @@ class FundsController < ApplicationController
   #   end
   # end
   #
-  # # PATCH/PUT /funds/1
-  # # PATCH/PUT /funds/1.json
-  # def update
-  #   respond_to do |format|
-  #     if @fund.update(fund_params)
-  #       format.html { redirect_to @fund, notice: 'Fund was successfully updated.' }
-  #       format.json { render :show, status: :ok, location: @fund }
-  #     else
-  #       format.html { render :edit }
-  #       format.json { render json: @fund.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+  # PATCH/PUT /funds/1
+  # PATCH/PUT /funds/1.json
+  def update
+    return unless @fund.user == @current_user
+    
+    respond_to do |format|
+      if @fund.update(fund_params)
+        format.html { redirect_to @fund, notice: 'Fund was successfully updated.' }
+        format.json { render :show, status: :ok, location: @fund }
+      else
+        format.html { render :edit }
+        format.json { render json: @fund.errors, status: :unprocessable_entity }
+      end
+    end
+  end
   #
   # # DELETE /funds/1
   # # DELETE /funds/1.json
@@ -71,6 +73,6 @@ class FundsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fund_params
-      params.require(:fund).permit(:name)
+      params.require(:fund).permit(:name, :description_ja, :description_en)
     end
 end

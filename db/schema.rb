@@ -11,11 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160503214916) do
+ActiveRecord::Schema.define(version: 20160504073739) do
 
   create_table "funds", force: :cascade do |t|
     t.string   "name"
     t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "goals", force: :cascade do |t|
+    t.integer  "amount"
+    t.string   "currency"
+    t.string   "name"
+    t.integer  "fund_id"
+    t.integer  "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,6 +39,35 @@ ActiveRecord::Schema.define(version: 20160503214916) do
     t.string   "transaction_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "translations", force: :cascade do |t|
+    t.integer  "translatable_id"
+    t.string   "translatable_type"
+    t.string   "translatable_field"
+    t.text     "locale"
+    t.text     "text"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  create_table "uploads", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "file_name"
+    t.string   "file_uid"
+    t.string   "mime_type"
+    t.string   "through"
+    t.integer  "bytes"
+    t.integer  "attachable_id"
+    t.string   "attachable_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "users", force: :cascade do |t|

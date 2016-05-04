@@ -14,9 +14,8 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
-
 	vertical-align: baseline;
+	box-sizing: border-box;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -25,7 +24,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-	height: 100%;
+	min-height: 100%;
 }
 html {
 	height: 100%;

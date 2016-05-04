@@ -8,4 +8,21 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   %body
+    .content
+      .top_section
+        .wrap.container-fluid
+          .hero
+            .hero_image
+      .main_section
+        .wrap.container-fluid
+          = yield
+    .footer
+      .wrap.container-fluid
+        %p Copyright 2016 New Sound For Japan
+        %p
+          Want to do something similar in your country?
+          %a(href="mailto:hello@newsoundforjapan.com") Get in touch.
+
+
+
     -# = yield

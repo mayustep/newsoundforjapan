@@ -1,13 +1,46 @@
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web:400,200,700);
 
+.wrap {
+  max-width: 1100px;
+}
+.hero {
+  padding-top: 20px;
+  .hero_image {
+    height: 200px;
+    width: 200px;
+    background-image: asset_url('newsoundforjapan');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.main_section {
+
+}
+
+.content {
+  padding-bottom: 120px;
+  position: relative;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  height: 100px;
+  padding-top: 20px;
+}
+
+
 body {
+  position: relative;
   background-color: #06080B;
   color: #EEEEFE;
   font-family: 'Titillium Web', sans-serif;
   text-rendering: optimizeLegibility;
-  background-image: asset_url('newsoundforjapan');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 100%;
+}
+
+a {
+  color: #4777FF;
+  text-decoration: none;
 }
