@@ -12,9 +12,13 @@ initPage = ->
     plugins: ['imagemanager', 'filemanager']
     uploadImageFields:
       through: 'redactor'
+      attachable_id: $('.redactor').data('attachable_id')
+      attachable_type: $('.redactor').data('attachable_type')
       authenticity_token: $('meta[name="csrf-token"]').attr('content')
     uploadFileFields:
       through: 'redactor'
+      attachable_id: $('.redactor').data('attachable_id')
+      attachable_type: $('.redactor').data('attachable_type')
       authenticity_token: $('meta[name="csrf-token"]').attr('content')
 
 

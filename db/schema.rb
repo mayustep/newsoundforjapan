@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20160504073739) do
     t.integer  "bytes"
     t.integer  "attachable_id"
     t.string   "attachable_type"
+    t.integer  "position"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

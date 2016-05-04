@@ -9,6 +9,7 @@ class CreateUploads < ActiveRecord::Migration[5.0]
       t.integer :bytes
       t.integer :attachable_id
       t.string :attachable_type
+      t.integer :position
 
       t.timestamps
     end

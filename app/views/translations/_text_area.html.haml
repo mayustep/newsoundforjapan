@@ -4,7 +4,7 @@
   - [:en, :ja].each do |locale|
     .translated_text_area{:class => locale, "v-show" => "locale == '#{locale}'"}
 
-      = f.text_area "#{name}_#{locale}", :class => 'redactor'
+      = f.text_area "#{name}_#{locale}", :class => 'redactor', 'data-attachable_id' => f.object.id, 'data-attachable_type' => f.object.class.name
 
 :coffee
   new Vue

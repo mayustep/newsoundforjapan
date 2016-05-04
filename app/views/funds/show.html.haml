@@ -1,4 +1,4 @@
 
 = sanitize @fund.description
-
-= link_to 'Edit', edit_fund_path(@fund)
+- if @current_user = @fund.user
+  = link_to 'Edit', edit_fund_path(@fund)

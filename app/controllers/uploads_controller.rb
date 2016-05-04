@@ -17,13 +17,13 @@
 #
 
 class UploadsController < ApplicationController
-  before_filter :authenticate_user!
+
   include ActionView::Helpers::NumberHelper # ugly. use jsonbuilder
   include ActionView::RecordIdentifier
 
   def destroy
     upload = Upload.find params[:id]
-    return cancel unless upload.user_id == current_user.id
+    return cancel unless upload.user_id == @current_user.id
     upload.destroy
     render :js do
       jQuery('#'+dom_id(upload)).remove!
@@ -32,7 +32,7 @@ class UploadsController < ApplicationController
 
   def index
     if params[:type] == 'image'
-      files = current_user.uploads.images.limit(10).order('created_at DESC')
+      files = @current_user.uploads.images.limit(10).order('created_at DESC')
       json = files.map do |upload|
         {
           :thumb => upload.file.thumb('100x100#').url,
@@ -41,7 +41,7 @@ class UploadsController < ApplicationController
         }
       end
     else
-      files = current_user.uploads.not_images.limit(10).order('created_at DESC')
+      files = @current_user.uploads.not_images.limit(10).order('created_at DESC')
       json = files.map do |upload|
         {
           :size => number_to_human_size(upload.bytes),
@@ -65,9 +65,9 @@ class UploadsController < ApplicationController
 
     upload = Upload.create :file => file_param,
       :bytes => File.size(file_param.tempfile),
-      :user_id => current_user.id, :mime_type => file_param.content_type, :through => params[:through],
+      :user_id => @current_user.id, :mime_type => file_param.content_type, :through => params[:through],
       :attachable_id => params[:attachable_id], :attachable_type => params[:attachable_type]
-
+    
     if params[:attachable_id] && params[:attachable_type]
       attachable_dom_id = params[:attachable_type]+'_'+params[:attachable_id]
       attachable_dom_id.downcase!
@@ -84,6 +84,7 @@ class UploadsController < ApplicationController
         format.html { render action: 'new', layout: false }
         format.json do
           # render :json => { :url => upload.file.url }
+          # todo: make RBJS gem respond to format.js, not json
           render :js do
             jQuery(render :partial => 'uploads/upload', :locals => {:upload => upload, :editable => true}, :formats => [:html]).appendTo('#uploads_'+attachable_dom_id)
           end
