@@ -1,1 +1,1 @@
-GEOIP = MaxMindDB.new(Rails.root + 'vendor/lfs/GeoLite2.mmdb')
+GEOIP = MaxMindDB.new(Rails.root + 'vendor/GeoLite2.mmdb')
