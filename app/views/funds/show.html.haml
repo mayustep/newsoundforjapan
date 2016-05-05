@@ -37,7 +37,7 @@
           .section.email
             = f.fields_for :user do |uf|
               %label E-mail
-              = uf.text_field :email, 'v-model' => 'email'
+              = uf.text_field :email, 'v-model' => 'email', :class => 'email_field'
               %p We will send a confirmation with your ticket number to this email address.
           .section.payment
             Pay with card | Pay with paypal | Pay with amazon
