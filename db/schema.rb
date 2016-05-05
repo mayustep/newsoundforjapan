@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20160504073739) do
     t.integer  "amount"
     t.integer  "currency"
     t.boolean  "confirmed"
+    t.boolean  "public"
     t.string   "transaction_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false

@@ -6,6 +6,8 @@ class CreatePayments < ActiveRecord::Migration[5.0]
       t.integer :amount
       t.integer :currency
       t.boolean :confirmed
+      t.boolean :public
+      
       t.string :transaction_id
 
       t.timestamps

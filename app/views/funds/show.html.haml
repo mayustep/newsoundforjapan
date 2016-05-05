@@ -6,6 +6,8 @@
         - if @current_user == @fund.user
           = link_to 'Edit', edit_fund_path(@fund)
 - payment = Payment.new(:fund => @fund, :amount => 1000)
+
+
 .pay_section
   .wrap.container-fluid
     .row
@@ -14,18 +16,29 @@
           .section.name Support <b>#{@fund.name}</b>
           .section.amount
             %label Pay what you want
-            .amount_button{':class' => '{active: payment.amount == 1000}', '@click' => 'payment.amount = 1000;custom=false'} ¥‎1000
-            .amount_button{':class' => '{active: payment.amount == 2000}', '@click' => 'payment.amount = 2000;custom=false'} ¥‎2000
-            .amount_button{':class' => '{active: payment.amount == 5000}', '@click' => 'payment.amount = 5000;custom=false'} ¥‎5000
-            .amount_button{'v-show' => '!custom', '@click' => 'custom = true'} Custom Amount
+            .toggle_button{':class' => '{active: payment.amount == 1000}', '@click' => 'payment.amount = 1000;custom=false'} ¥‎1000
+            .toggle_button{':class' => '{active: payment.amount == 2000}', '@click' => 'payment.amount = 2000;custom=false'} ¥‎2000
+            .toggle_button{':class' => '{active: payment.amount == 5000}', '@click' => 'payment.amount = 5000;custom=false'} ¥‎5000
+            .toggle_button{'v-show' => '!custom', '@click' => 'custom = true'} Custom Amount
             = f.text_field :amount, 'v-show' => 'custom', 'v-model' => 'payment.amount', :class => 'amount_field'
           .section.distribution
-            %label Where should your money go
+            %label Where your money will go
+            %p
+              Staff & Artists: ¥{{Math.ceil(payment.amount * 0.85)}}
+            %p
+              Charity: ¥{{Math.floor(payment.amount * 0.15)}}
+            .with_popup
+              %span.dashed Customize distribution
+              %aside Coming soon.
           .section.identity
             %label Make your contribution public
+            .toggle_button{':class' => '{active: payment.public}', '@click' => 'payment.public = true'} Yes
+            .toggle_button{':class' => '{active: !payment.public}', '@click' => 'payment.public = false'} No
           .section.email
-            %label How we can reach you
-
+            = f.fields_for :user do |uf|
+              %label E-mail
+              = uf.text_field :email, 'v-model' => 'email'
+              %p We will send a confirmation with your ticket number to this email address.
           .section.payment
             Pay with card | Pay with paypal | Pay with amazon
 
@@ -33,4 +46,12 @@
   new Vue
     el: '.purchase_form'
     data:
+      custom: false
       payment: #{payment.to_json}
+      email: ''
+    watch:
+      custom: (old, newVal) ->
+        $('.amount_field').focus() if old
+
+  $('.staff_slider').slider()
+  $('.charity_slider').slider()

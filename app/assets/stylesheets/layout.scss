@@ -59,7 +59,7 @@
         background-color: #d5d9e1;
       }
     }
-    .amount_button {
+    .toggle_button {
       cursor: pointer;
       display: inline-block;
       background-color: #858585;
@@ -72,6 +72,14 @@
         border-color: #088ef0;
         color: white;
       }
+    }
+    .amount_field {
+      font-size: 19px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      background: linear-gradient(#34a5f8, #088ef0);
+      border-color: #088ef0;
+      color: white;
     }
   }
 }
@@ -104,3 +112,43 @@ a {
   color: #4777FF;
   text-decoration: none;
 }
+.dashed {
+  border-bottom: 1px dashed #7b818c;
+}
+.with_popup {
+  position: relative;
+  display: inline-block;
+}
+.with_popup aside {
+  background-color: white;
+  color: #3b3e48;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400 !important;
+  left: 50%;
+  top: 30px;
+  line-height: 16px;
+  margin-left: -90px;
+  opacity: 0;
+  padding: 10px 10px 10px 10px;
+  text-shadow: none;
+  transition: all 0.2s ease;
+  width: 170px;
+  border-radius: 3px;
+  text-align: left;
+  position: absolute;
+  z-index: -1;
+}
+.with_popup aside:after {
+  display: block;
+  width: 0;
+  margin-left: -10px;
+  border-width: 0 10px 10px;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  border-color: white transparent;
+  border-style: solid;
+  content: "";
+}
+.with_popup .dashed:hover + aside { opacity: 1; z-index: 15; }
