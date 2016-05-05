@@ -3,11 +3,12 @@
 .wrap {
   max-width: 1100px;
 }
+
 .hero {
-  padding-top: 20px;
+  position: relative;
   .hero_image {
-    height: 200px;
-    width: 200px;
+    height: 130px;
+    width: 130px;
     background-image: asset_url('newsoundforjapan');
     background-size: contain;
     background-repeat: no-repeat;
@@ -15,12 +16,54 @@
   }
 }
 
-.main_section {
+.top_section {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #282c34;
+  .features {
+    position: absolute;
+    top: 100px;
+    left: 131px;
+    p {
+      display: inline-block;
+      margin-left: 40px;
+      color: #797f8c
+    }
+  }
+  .settings {
+    position: absolute;
+    top: 120px;
+    left: 210px;
+  }
+}
 
+.main_section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.pay_section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: #e4e7ed;
+  color: #494f5c;
+  .purchase_form {
+    border: 1px solid #c4c7cd;
+    border-radius: 3px;
+    .section {
+      padding: 20px;
+      border-bottom: 1px solid #b4b7bd;
+      &:last-child {
+        border: none;
+      }
+      &.name,&.distribution,&.email {
+        background-color: #d5d9e1;
+      }
+    }
+  }
 }
 
 .content {
-  padding-bottom: 120px;
+  padding-bottom: 180px;
   position: relative;
 }
 
@@ -28,17 +71,19 @@
   width: 100%;
   position: absolute;
   bottom: 0;
-  height: 100px;
-  padding-top: 20px;
+  height: 120px;
+  padding-top: 40px;
+  background-color: #282c34;
 }
 
 
 body {
+  background-color: #3b3e48;
   position: relative;
-  background-color: #06080B;
   color: #EEEEFE;
   font-family: 'Titillium Web', sans-serif;
   text-rendering: optimizeLegibility;
+  font-size: 19px;
 }
 
 a {

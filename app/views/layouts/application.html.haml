@@ -11,11 +11,18 @@
     .content
       .top_section
         .wrap.container-fluid
-          .hero
-            .hero_image
-      .main_section
-        .wrap.container-fluid
-          = yield
+          .row
+            .col-xs-12
+              .hero
+                .hero_image
+                .features
+                  %p.awesome Amazing Sound
+                  %p.pay Pay what you want
+                  %p.ticket Get tickets
+                  %p.meet Meet the artists
+                  %p.charity Support charity
+                .language_select
+      = yield
     .footer
       .wrap.container-fluid
         %p Copyright 2016 New Sound For Japan

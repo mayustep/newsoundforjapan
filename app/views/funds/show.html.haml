@@ -1,4 +1,36 @@
+.main_section
+  .wrap.container-fluid
+    .row
+      .col-xs-12
+        = sanitize @fund.description
+        - if @current_user == @fund.user
+          = link_to 'Edit', edit_fund_path(@fund)
+- payment = Payment.new(:fund => @fund)
+.pay_section
+  .wrap.container-fluid
+    .row
+      .col-xs-12
+        = form_for payment, :html => {:class => 'purchase_form'} do |f|
+          .section.name Support <b>#{@fund.name}</b>
+          .section.amount
+            %label Pay what you want
+            .amount_button{'@click' => 'payment.amount = 1000'} 1000
+            .amount_button{'@click' => 'payment.amount = 2000'} 2000
+            .amount_button{'@click' => 'payment.amount = 5000'} 5000
+            .amount_button{'@click' => 'custom = true'} Custom Amount
+            = f.text_field :amount, ':value' => 'payment.amount', :class => 'amount_field'
+          .section.distribution
+            %label Where should your money go
+          .section.identity
+            %label Make your contribution public
+          .section.email
+            %label How we can reach you
 
-= sanitize @fund.description
-- if @current_user == @fund.user
-  = link_to 'Edit', edit_fund_path(@fund)
+          .section.payment
+            Pay with card | Pay with paypal | Pay with amazon
+
+:coffee
+  new Vue
+    el: '.purchase_form'
+    data:
+      payment: #{payment.to_json}
