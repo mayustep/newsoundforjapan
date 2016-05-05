@@ -4,7 +4,7 @@
       .col-xs-12
         = sanitize @fund.description
         - if @current_user == @fund.user
-          = link_to 'Edit', edit_fund_path(@fund)
+          = link_to t('.edit'), edit_fund_path(@fund)
 - payment = Payment.new(:fund => @fund, :amount => 1000)
 
 
@@ -13,34 +13,34 @@
     .row
       .col-xs-12
         = form_for payment, :html => {:class => 'purchase_form'} do |f|
-          .section.name Support <b>#{@fund.name}</b>
+          .section.name= t('.be_a_part_of_bfundnameb_html', :fundname => (@fund.name))
           .section.amount
-            %label Pay what you want
-            .toggle_button{':class' => '{active: payment.amount == 1000}', '@click' => 'payment.amount = 1000;custom=false'} ¥‎1000
-            .toggle_button{':class' => '{active: payment.amount == 2000}', '@click' => 'payment.amount = 2000;custom=false'} ¥‎2000
-            .toggle_button{':class' => '{active: payment.amount == 5000}', '@click' => 'payment.amount = 5000;custom=false'} ¥‎5000
-            .toggle_button{'v-show' => '!custom', '@click' => 'custom = true'} Custom Amount
+            %label= t('.pay_what_you_want')
+            .toggle_button{':class' => '{active: payment.amount == 1000}', '@click' => 'payment.amount = 1000;custom=false'}= t('.¥‎1000')
+            .toggle_button{':class' => '{active: payment.amount == 2000}', '@click' => 'payment.amount = 2000;custom=false'}= t('.¥‎2000')
+            .toggle_button{':class' => '{active: payment.amount == 5000}', '@click' => 'payment.amount = 5000;custom=false'}= t('.¥‎5000')
+            .toggle_button{'v-show' => '!custom', '@click' => 'custom = true'}= t('.custom_amount')
             = f.text_field :amount, 'v-show' => 'custom', 'v-model' => 'payment.amount', :class => 'amount_field'
           .section.distribution
-            %label Where your money will go
+            %label= t('.where_your_money_will_go')
             %p
-              Staff & Artists: ¥{{Math.ceil(payment.amount * 0.85)}}
+              = t('.staff_artists_¥mathceilpayment')
             %p
-              Charity: ¥{{Math.floor(payment.amount * 0.15)}}
+              = t('.charity_¥mathfloorpaymentamoun')
             .with_popup
-              %span.dashed Customize distribution
-              %aside Coming soon.
+              %span.dashed= t('.customize_distribution')
+              %aside= t('.coming_soon')
           .section.identity
-            %label Make your contribution public
-            .toggle_button{':class' => '{active: payment.public}', '@click' => 'payment.public = true'} Yes
-            .toggle_button{':class' => '{active: !payment.public}', '@click' => 'payment.public = false'} No
+            %label= t('.make_your_contribution_public')
+            .toggle_button{':class' => '{active: payment.public}', '@click' => 'payment.public = true'}= t('.yes')
+            .toggle_button{':class' => '{active: !payment.public}', '@click' => 'payment.public = false'}= t('.no')
           .section.email
             = f.fields_for :user do |uf|
-              %label E-mail
+              %label= t('.email')
               = uf.text_field :email, 'v-model' => 'email', :class => 'email_field'
-              %p We will send a confirmation with your ticket number to this email address.
+              %p= t('.we_will_send_a_confirmation_wi')
           .section.payment
-            Pay with card | Pay with paypal | Pay with amazon
+            = t('.pay_with_card_pay_with_paypal_')
 
 :coffee
   new Vue
@@ -52,6 +52,3 @@
     watch:
       custom: (old, newVal) ->
         $('.amount_field').focus() if old
-
-  $('.staff_slider').slider()
-  $('.charity_slider').slider()

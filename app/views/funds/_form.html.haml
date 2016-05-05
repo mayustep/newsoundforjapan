@@ -3,7 +3,7 @@
     #error_explanation
       %h2
         = pluralize(fund.errors.count, "error")
-        prohibited this fund from being saved:
+        = t('.prohibited_this_fund_from_bein')
       %ul
         - fund.errors.full_messages.each do |message|
           %li= message

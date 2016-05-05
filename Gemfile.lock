@@ -81,6 +81,7 @@ GEM
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
     formatador (0.2.5)
+    gli (2.13.4)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     haml (4.0.7)
@@ -100,6 +101,13 @@ GEM
     listen (3.0.7)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9.7)
+    localeapp (1.0.2)
+      gli
+      i18n
+      json
+      rack
+      rest-client
+      ya2yaml
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -199,6 +207,7 @@ GEM
     websocket-driver (0.6.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    ya2yaml (0.31)
 
 PLATFORMS
   ruby
@@ -215,6 +224,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   listen (~> 3.0.5)
+  localeapp
   maxminddb
   pg
   puma (~> 3.0)

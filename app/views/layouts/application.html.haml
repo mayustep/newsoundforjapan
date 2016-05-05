@@ -1,7 +1,7 @@
 !!!5
 %html
   %head
-    %title Newsoundforjapan
+    %title= t('.newsoundforjapan')
     = csrf_meta_tags
 
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -16,19 +16,19 @@
               .hero
                 .hero_image
                 .features
-                  %p.awesome Amazing Sound
-                  %p.pay Pay what you want
-                  %p.ticket Get tickets
-                  %p.meet Meet the artists
-                  %p.charity Support charity
+                  %p.awesome= t('.amazing_sound')
+                  %p.pay= t('.pay_what_you_want')
+                  %p.ticket= t('.get_tickets')
+                  %p.meet= t('.meet_the_artists')
+                  %p.charity= t('.support_charity')
                 .language_select
       = yield
     .footer
       .wrap.container-fluid
-        %p Copyright 2016 New Sound For Japan
+        %p= t('.copyright_2016_new_sound_for_j')
         %p
-          Want to do something similar in your country?
-          %a(href="mailto:hello@newsoundforjapan.com") Get in touch.
+          = t('.want_to_do_something_similar_i')
+          %a(href="mailto:hello@newsoundforjapan.com")= t('.get_in_touch')
 
 
 

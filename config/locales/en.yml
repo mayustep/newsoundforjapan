@@ -1,23 +1,43 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
+---
 en:
-  hello: "Hello world"
+  hello: Hello world
+  funds:
+    form:
+      prohibited_this_fund_from_bein: 'prohibited this fund from being saved:'
+    edit:
+      back: Back
+    show:
+      edit: Edit
+      be_a_part_of_bfundnameb_html: 'Be a part of <b>%{fundname}</b>'
+      pay_what_you_want: Pay what you want
+      "¥‎1000": "¥‎1000"
+      "¥‎2000": "¥‎2000"
+      "¥‎5000": "¥‎5000"
+      custom_amount: Custom Amount
+      where_your_money_will_go: Where your money will go
+      staff_artists_¥mathceilpayment: 'Staff & Artists: ¥{{Math.ceil(payment.amount
+        * 0.85)}}'
+      charity_¥mathfloorpaymentamoun: 'Charity: ¥{{Math.floor(payment.amount * 0.15)}}'
+      customize_distribution: Customize distribution
+      coming_soon: Coming soon.
+      make_your_contribution_public: Make your contribution public
+      'yes': 'Yes'
+      'no': 'No'
+      email: E-mail
+      we_will_send_a_confirmation_wi: We will send a confirmation with your ticket
+        number to this email address.
+      pay_with_card_pay_with_paypal_: Pay with card | Pay with paypal | Pay with amazon
+  sessions:
+    form:
+      prohibited_this_session_from_b: 'prohibited this session from being saved:'
+  layouts:
+    application:
+      newsoundforjapan: Newsoundforjapan
+      amazing_sound: Amazing Sound
+      pay_what_you_want: Pay what you want
+      get_tickets: Get tickets
+      meet_the_artists: Meet the artists
+      support_charity: Support charity
+      copyright_2016_new_sound_for_j: Copyright 2016 New Sound For Japan
+      want_to_do_something_similar_i: Want to do something similar in your country?
+      get_in_touch: Get in touch.

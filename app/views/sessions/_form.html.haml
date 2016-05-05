@@ -3,7 +3,7 @@
     #error_explanation
       %h2
         = pluralize(session.errors.count, "error")
-        prohibited this session from being saved:
+        = t('.prohibited_this_session_from_b')
       %ul
         - session.errors.full_messages.each do |message|
           %li= message

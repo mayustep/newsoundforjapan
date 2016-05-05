@@ -1,7 +1,7 @@
-<template lang="haml">
+<template lang="jade">
 .slider
   .filled_bar
-  .handle
+  .handle Im a slider
 </template>
 
 <style scoped>
@@ -9,6 +9,7 @@
     width: 100%;
     height: 40px;
     background: red;
+    color: white;
   }
 </style>
 
