@@ -5,7 +5,7 @@
         = sanitize @fund.description
         - if @current_user == @fund.user
           = link_to 'Edit', edit_fund_path(@fund)
-- payment = Payment.new(:fund => @fund)
+- payment = Payment.new(:fund => @fund, :amount => 1000)
 .pay_section
   .wrap.container-fluid
     .row
@@ -14,11 +14,11 @@
           .section.name Support <b>#{@fund.name}</b>
           .section.amount
             %label Pay what you want
-            .amount_button{'@click' => 'payment.amount = 1000'} 1000
-            .amount_button{'@click' => 'payment.amount = 2000'} 2000
-            .amount_button{'@click' => 'payment.amount = 5000'} 5000
-            .amount_button{'@click' => 'custom = true'} Custom Amount
-            = f.text_field :amount, ':value' => 'payment.amount', :class => 'amount_field'
+            .amount_button{':class' => '{active: payment.amount == 1000}', '@click' => 'payment.amount = 1000;custom=false'} ¥‎1000
+            .amount_button{':class' => '{active: payment.amount == 2000}', '@click' => 'payment.amount = 2000;custom=false'} ¥‎2000
+            .amount_button{':class' => '{active: payment.amount == 5000}', '@click' => 'payment.amount = 5000;custom=false'} ¥‎5000
+            .amount_button{'v-show' => '!custom', '@click' => 'custom = true'} Custom Amount
+            = f.text_field :amount, 'v-show' => 'custom', 'v-model' => 'payment.amount', :class => 'amount_field'
           .section.distribution
             %label Where should your money go
           .section.identity
