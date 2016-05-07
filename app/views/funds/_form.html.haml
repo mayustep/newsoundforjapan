@@ -12,5 +12,9 @@
     = f.text_field :name
   .field
     = f.translated_text_area :description
+  .goals
+    = f.fields_for :goals do |builder|
+      = render 'goal_fields', :f => builder
+    = link_to_add_fields 'Add Goal', f, :goals
   .actions
     = f.submit

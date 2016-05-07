@@ -1,4 +1,10 @@
 
+.locale_link {
+  padding: 4px 20px;
+  &.active {
+    background-color: #fff;
+  }
+}
 
 .redactor-editor.redactor-editor, .redactor-editor.redactor-editor * {
   font-family: inherit !important;

@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: funds
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  user_id    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class FundsController < ApplicationController
   before_action :set_fund, only: [:show, :edit, :update, :destroy]
 
@@ -73,6 +84,6 @@ class FundsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fund_params
-      params.require(:fund).permit(:name, :description_ja, :description_en)
+      params.require(:fund).permit(:name, :description_ja, :description_en, :goals_attributes => [:name, :amount, :currency, :retained_image, :_destroy, :id])
     end
 end

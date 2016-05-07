@@ -1,0 +1,15 @@
+%fieldset.inline_fields.goal
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :amount
+    = f.text_field :amount
+  .field
+    = f.label :image
+    = f.image_upload_field :image
+  .field
+    = f.translated_text_area :description
+  = f.hidden_field :currency, :value => 'JPY'
+  = f.hidden_field :_destroy
+  = link_to "Remove", '#', :class => 'remove_fields'
