@@ -41,3 +41,6 @@ en:
       copyright_2016_new_sound_for_j: Copyright 2016 New Sound For Japan
       want_to_do_something_similar_i: Want to do something similar in your country?
       get_in_touch: Get in touch.
+  application_mailer:
+    payment_confirmation:
+      thank_you: '%{fund} confirmation'

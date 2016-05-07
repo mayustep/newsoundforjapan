@@ -49,11 +49,7 @@ class PaymentsController < ApplicationController
 
     respond_to do |format|
       if @payment.save
-        if user_is_new
-          # send email with ticket number, confirmation and password
-        else
-          # send email with ticket number, confirmation
-        end
+        ApplicationMailer.payment_confirmation(@payment, pw).deliver_later
         format.html { redirect_to payment_path(@payment.transaction_id), notice: 'Payment was successfully created.' }
         format.json { render :show, status: :created, location: @payment }
       else

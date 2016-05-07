@@ -21,3 +21,6 @@
 
 ja:
   hello: "Hello world"
+  application_mailer:
+    payment_confirmation:
+      thank_you: '%{fund} confirmation'

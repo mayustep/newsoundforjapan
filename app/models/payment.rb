@@ -17,4 +17,8 @@
 class Payment < ApplicationRecord
   belongs_to :user
   belongs_to :fund
+  
+  def formatted_number
+    id.to_s.rjust(6, '0').insert(3,'-')
+  end
 end

@@ -1,0 +1,19 @@
+Hello <%= @payment.user.email %>,
+
+thanks for being a part of New Sound For Japan and supporting <%= @payment.fund.name %>, even though it is still in the early stages.
+
+Your confirmation number is:
+================
+<%= @payment.formatted_number %>
+================
+<%- if @password -%>
+
+Your password to access the private area is:
+================
+<%= @password %>
+================
+<%- end -%>
+
+As soon as we have further information, we will let you know.
+
+If you have ideas or question, simply reply to this email.
