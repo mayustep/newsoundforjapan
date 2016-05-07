@@ -14,4 +14,6 @@ class User < ApplicationRecord
   has_many :payments
   has_many :uploads
   has_many :funds
+
+
 end

@@ -1,0 +1,7 @@
+.main_section
+  .wrap.container-fluid
+    .row
+      .col-xs-12
+        %h1 Thank you so much for your investment and support!
+        %p A confirmation has been sent to #{@payment.user.email}.
+        %p Your ticket number for #{@payment.fund.name} is <b>#{@payment.id.to_s.rjust(6, '0').insert(3,'-')}</b>

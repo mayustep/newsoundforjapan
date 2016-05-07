@@ -164,3 +164,45 @@ a {
   content: "";
 }
 .with_popup .dashed:hover + aside { opacity: 1; z-index: 15; }
+
+.pay_with_stripe {
+  background-color: #17a1e6;
+  background: linear-gradient(-180deg, #4dc4ff 0%, #17a1e6 100%);
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  &:hover {
+    background: linear-gradient(-180deg, #80d4ff 0%, #19b2ff 100%);
+  }
+  &:active {
+    background: #148fcc;
+    box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.2),inset 0px 0px 0px 1px rgba(0,0,0,0.2);
+  }
+}
+
+.pay_with_stripe {
+  text-align: center;
+  vertical-align: top;
+  box-sizing: border-box;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.1),inset 0px 0px 0px 1px rgba(0,0,0,0.2),inset 0px 2px 0px 0px rgba(255,255,255,0.2);
+  color: #484f5c;
+  cursor: pointer;
+  font-size: 15px;
+  height: 46px;
+  margin: 0;
+  padding: 11px 9px 9px 9px;
+  text-decoration: none;
+  width: 157px;
+  margin-right: 5px;
+  line-height: 26px;
+}
+
+.payment_info {
+  color: #6c6c6c;
+  margin: 0 auto;
+  padding: 10px 0;
+  font-size: 14px;
+  text-align: justify;
+  line-height: 1;
+}

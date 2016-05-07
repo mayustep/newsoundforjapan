@@ -34,3 +34,5 @@ initPage = ->
 
 
 $(document).on 'turbolinks:load', initPage
+
+window.delay = (time, fn) -> setTimeout fn, time
