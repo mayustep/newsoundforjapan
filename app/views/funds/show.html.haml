@@ -1,13 +1,21 @@
 .main_section
   .wrap.container-fluid
+    - if @current_user == @fund.user
+      = link_to t('.edit'), edit_fund_path(@fund), :class => 'edit_page_link'
     .row
       .col-xs-12
         = sanitize @fund.description
-        - if @current_user == @fund.user
-          = link_to t('.edit'), edit_fund_path(@fund)
+.goals_section
+  .wrap.container-fluid
+    .row
+      .col-xs-12
+        %h1= @fund.name
+        %p Current Line-up
+        - @fund.goals.each do |goal|
+          = image_tag goal.image.thumb('300x300#').url
+        
+
 - payment = Payment.new(:fund => @fund, :amount => 1000)
-
-
 .pay_section
   .wrap.container-fluid
     .row
@@ -81,7 +89,7 @@
         $('#payment_form [name=stripeToken]').val token.id
         $('#payment_form [name=email]').val token.email
         $('#payment_form').submit()
-    $('.pay_with_stripe').click (e) ->
+    $('.pay_with_stripe').on 'click', (e) ->
       handler.open
         amount: formvue.payment.amount
         currency: 'jpy'

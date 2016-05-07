@@ -5,7 +5,7 @@
     = image_tag f.object.send(name).thumb(geometry).url, id: "#{some_id}_#{name}_preview"
     //= f.input_field "remove_#{name}"
   - else
-    = image_tag 'default.png', size: '128x128#', id: "#{some_id}_#{name}_preview"
+    = image_tag asset_path('default.png'), size: '128x128#', id: "#{some_id}_#{name}_preview"
   = f.hidden_field "retained_#{name}", :id => "#{some_id}_retained_#{name}"
 
   = content_tag :iframe, nil, src: new_upload_path(geometry: geometry, retained_id: "#{some_id}_retained_#{name}", image_id: "#{some_id}_#{name}_preview"), width:"400", height:"50", frameborder: "0"

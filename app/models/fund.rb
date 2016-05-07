@@ -17,7 +17,7 @@ class Fund < ApplicationRecord
   has_many :goals
 
   accepts_translations_for :description
-  accepts_nested_attributes_for :goals
+  accepts_nested_attributes_for :goals, :allow_destroy => true
 
   first_user = User.where(:email => 'hello@newsoundforjapan.com').first_or_create(:password => 'ilovemusic', :password_confirmation => 'ilovemusic')
   Fund.where(:id => 1).first_or_create(:name => 'The Sound Check', :user_id => first_user.id)

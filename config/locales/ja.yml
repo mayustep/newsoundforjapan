@@ -1,4 +1,5 @@
 ja:
+  ja: 日本語
   activerecord:
     errors:
       messages:
@@ -105,7 +106,7 @@ ja:
       month: 月
       second: 秒
       year: 年
-  en: 
+  en: English
   errors:
     format: "%{attribute}%{message}"
     messages:
@@ -171,12 +172,10 @@ ja:
     submit:
       create: 登録する
       submit: 保存する
-      update: 更新する
-  ja: 
+      update: 更新する 
   layouts:
     application:
-      English: English
-      Japanese: 日本語
+      
       amazing_sound: 
       copyright_2016_new_sound_for_j: 
       get_in_touch: 

@@ -162,7 +162,7 @@ en:
       pay_what_you_want: Pay what you want
       pay_with_card: Pay with Card
       pay_with_card_pay_with_paypal_: Pay with card | Pay with paypal | Pay with amazon
-      payment_info: All major credit cards are accepted. Payment processing fees will be deducted proportionally from the payment amounts that are indicated above. Fees average between 3 to 6% across all transactions, but may vary depending on a number of factors, including your location, purchase price, and payment method. If required by law, we also deduct VAT where applicable.
+      payment_info: All major credit cards are accepted. Payment processing fees will be deducted proportionally from the payment amounts that are indicated above. Fees average between 3 to 6% across all transactions, but may vary depending on a number of factors, including your location, purchase price, and payment method. If required by law, we also deduct VAT where applicable. Please note that artists and line-up are subject to change at any time.
       staff_artists_¥mathceilpayment: 'Staff & Artists: ¥{{Math.ceil(payment.amount * 0.85)}}'
       we_will_send_a_confirmation_wi: We will send a confirmation with your ticket number to this email address.
       where_your_money_will_go: Where your money will go
@@ -181,8 +181,7 @@ en:
   ja: 日本語
   layouts:
     application:
-      English: English
-      Japanese: 日本語
+      
       amazing_sound: Amazing Sound
       copyright_2016_new_sound_for_j: Copyright 2016 New Sound For Japan
       get_in_touch: Get in touch.

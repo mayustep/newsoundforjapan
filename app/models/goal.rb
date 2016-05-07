@@ -16,9 +16,13 @@
 
 class Goal < ApplicationRecord
   include Translatable
-
+  acts_as_list :scope => :fund
   belongs_to :fund
   accepts_translations_for :description
   dragonfly_accessor :image
+  
+  def collected_amount
+    fund.payments.paid.sum(:amount)
+  end
 
 end

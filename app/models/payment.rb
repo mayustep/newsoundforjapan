@@ -17,6 +17,8 @@
 class Payment < ApplicationRecord
   belongs_to :user
   belongs_to :fund
+
+  scope :paid, -> { where :confirmed => true, :refunded_at => nil }
   
   def formatted_number
     id.to_s.rjust(6, '0').insert(3,'-')
