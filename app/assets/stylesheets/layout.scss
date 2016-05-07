@@ -30,6 +30,20 @@
       color: #797f8c
     }
   }
+  .language_select {
+    position: absolute;
+    right: 0;
+    top: 20px;
+    font-size: 14px;
+    a {
+      color: #797f8c;
+      padding: 4px 12px;
+      &.active {
+        color: #EEEEFE;
+        background-color: #3b3e48;
+      }  
+    }
+  }
   .settings {
     position: absolute;
     top: 120px;

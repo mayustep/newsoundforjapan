@@ -40,12 +40,9 @@
               = uf.text_field :email, 'v-model' => 'email', :class => 'email_field'
               %p= t('.we_will_send_a_confirmation_wi')
           .section.payment
-            .pay_with_stripe Pay with Card
+            .pay_with_stripe= t('.pay_with_card')
 
-        .payment_info
-          All major credit cards are accepted. Payment processing fees will be deducted proportionally from the payment amounts that are indicated above.
-          Fees average between 3 to 6% across all transactions, but may vary depending on a number of factors, including your location, purchase price, and payment method.
-          If required by law, we also deduct VAT where applicable.
+        .payment_info= t '.payment_info'
 
 = form_for @fund.payments.new, :html => {:id => 'payment_form'} do |f|
   = f.hidden_field :fund_id

@@ -1,7 +1,7 @@
 !!!5
 %html
   %head
-    %title= t('.newsoundforjapan')
+    %title New Sound For Japan
     = csrf_meta_tags
 
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -22,6 +22,8 @@
                   %p.meet= t('.meet_the_artists')
                   %p.charity= t('.support_charity')
                 .language_select
+                  = link_to t('en'), '?locale=en', :class => ('active' if I18n.locale == :en)
+                  = link_to t('ja'), '?locale=ja', :class => ('active' if I18n.locale == :ja)
       = yield
     .footer
       .wrap.container-fluid
