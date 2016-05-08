@@ -119,6 +119,11 @@
       background: linear-gradient(#34a5f8, #088ef0);
       border-color: #088ef0;
       color: white;
+      width: 150px;
+    }
+    .minimum {
+      font-size: 14px;
+      color: #6c6c6c;
     }
     .email_field {
       color: #494f5c;
@@ -126,6 +131,14 @@
       font-size: 18px;
       border-radius: 15px;
     }
+  }
+  .payment_info {
+    color: #6c6c6c;
+    margin: 0 auto;
+    padding: 10px 0;
+    font-size: 14px;
+    text-align: justify;
+    line-height: 1;
   }
 }
 
@@ -229,13 +242,4 @@ a {
   width: 157px;
   margin-right: 5px;
   line-height: 26px;
-}
-
-.payment_info {
-  color: #6c6c6c;
-  margin: 0 auto;
-  padding: 10px 0;
-  font-size: 14px;
-  text-align: justify;
-  line-height: 1;
 }

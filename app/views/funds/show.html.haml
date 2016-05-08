@@ -39,6 +39,7 @@
             .toggle_button{':class' => '{active: payment.amount == 5000}', '@click' => 'payment.amount = 5000;custom=false'}= t('.¥‎5000')
             .toggle_button{'v-show' => '!custom', '@click' => 'custom = true'}= t('.custom_amount')
             = f.text_field :amount, 'v-show' => 'custom', 'v-model' => 'payment.amount', :class => 'amount_field'
+            %span.minimum(v-show='custom')= t '.minimum'
           .section.distribution
             %label= t('.where_your_money_will_go')
             %p
@@ -102,6 +103,8 @@
         $('#payment_form [name=email]').val token.email
         $('#payment_form').submit()
     $('.pay_with_stripe').on 'click', (e) ->
+      amount = formvue.payment.amount
+      return alert(#{t('.minimum').to_json}) if amount < 50
       handler.open
         amount: formvue.payment.amount
         currency: 'jpy'
