@@ -16,11 +16,20 @@
             = image_tag goal.image.thumb('300x300#').url, :class => 'goal_image'
             .goal_info
               %h1= goal.name
+              .goal_progress
+                .bar_wrapper
+                  .bar{:style => "width: #{goal.progress_percent}%", :class => "#{'done' if goal.progress_percent >= 100}"}
+                .collected_amount 
+                  %span.progress ¥#{number_with_delimiter(goal.collected_amount)}
+                  %span.dash /
+                  %span.total ¥#{number_with_delimiter(goal.amount)}
+                .percent{:class => "#{'done' if goal.progress_percent >= 100}"} #{goal.progress_percent}%
               %p= sanitize goal.description
+.sponsors_section
   .wrap.container-fluid
     .row
       .col-xs-12
-        %p Sponsors
+        %h1 Sponsors
         .pay_more
           = fa_icon 'info-circle'
           %p= t('.pay_more', :average => number_with_delimiter(@fund.payment_average))
@@ -36,7 +45,10 @@
       .col-xs-12
         
         = form_for payment, :html => {:class => 'purchase_form'} do |f|
-          .section.name= t('.be_a_part_of_bfundnameb_html', :fundname => (@fund.name))
+          
+          .section.name
+            = t('.be_a_part_of_bfundnameb_html', :fundname => (@fund.name))
+            
           .section.amount
             %label= t('.pay_what_you_want')
             .toggle_button{':class' => '{active: payment.amount == 1000}', '@click' => 'payment.amount = 1000;custom=false'}= t('.¥‎1000')
@@ -64,7 +76,12 @@
               = uf.text_field :email, 'v-model' => 'email', :class => 'email_field'
               %p= t('.we_will_send_a_confirmation_wi')
           .section.payment
-            .pay_with_stripe= t('.pay_with_card')
+            .pay_with_stripe
+              = fa_icon 'credit-card-alt'
+              = t('.pay_with_card')
+            .refund_policy
+              = fa_icon 'lock'
+              = t('.will_be_refunded')
         .payment_info= t '.payment_info'
         
         

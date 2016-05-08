@@ -166,7 +166,7 @@ en:
       staff_artists_¥mathceilpayment: 'Staff & Artists: ¥{{Math.ceil(payment.amount * 0.85)}}'
       we_will_send_a_confirmation_wi: We will send a confirmation with your ticket number to this email address.
       where_your_money_will_go: Where your money will go
-      will_be_refunded: 'Refund policy: In case the event is cancelled, all payments are to be refunded. Please note that it is not possible to request a refund for reasons other than event cancellation.'
+      will_be_refunded: 'Your money will be refunded if no goal is reached.'
       pay_more: Pay more than the current average of ¥%{average} to gain access to the VIP and sponsor area where you can declare your payment as sponsoring. This allows you to list your company as official sponsor.
       'yes': 'Yes'
       "¥‎1000": "¥‎1000"
