@@ -12,7 +12,11 @@
         %h1= @fund.name
         %p Current Line-up
         - @fund.goals.each do |goal|
-          = image_tag goal.image.thumb('300x300#').url
+          .goal
+            = image_tag goal.image.thumb('300x300#').url, :class => 'goal_image'
+            .goal_info
+              %h1= goal.name
+              %p= sanitize goal.description
   .wrap.container-fluid
     .row
       .col-xs-12
@@ -22,7 +26,8 @@
           %p= t('.pay_more', :average => number_with_delimiter(@fund.payment_average))
         - @fund.payments.paid.published do |sponsor_payment|
           = image_tag goal.image.thumb('300x300#').url
-        
+ 
+
 
 - payment = Payment.new(:fund => @fund, :amount => 1000)
 .pay_section

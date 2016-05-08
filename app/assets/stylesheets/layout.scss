@@ -79,6 +79,40 @@
     padding: 20px 30px;
     background-color: lighten(#494f5c, 10);
   }
+  /* Speech bubble with a border */
+  .goal_image {}
+  .goal_info {
+      margin-top: -300px;
+      background-color: #3b3e48;
+      border: 2px solid lighten(#494f5c, 10);
+      border-radius: 5px;
+      padding: 28px 28px;
+      position: relative;
+      margin-left: 340px;
+      min-height: 300px;
+  }
+  .goal_info:after,
+  .goal_info:before {
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+      border-right: 20px solid #3b3e48;
+      left: -20px;
+      content: '';
+      top: 100px;
+      margin-top: -20px;
+      position: absolute;
+  }
+
+  /* Styling for second triangle (border) */
+
+  .goal_info:before {
+      border-top: 23px solid transparent;
+      border-bottom: 23px solid transparent;
+      border-right: 23px solid;
+      border-right-color: inherit; /* Can't be included in the shorthand to work */
+      left: -23px;
+      margin-top: -23px;
+  }
 }
 .pay_section {
   padding-top: 60px;
