@@ -6,6 +6,16 @@ Your confirmation number is:
 ================
 <%= @payment.formatted_number %>
 ================
+<%- if @payment.more_than_average -%>
+
+CONGRATULATIONS! You beat the average.
+You can now declare your payment as investment or sponsoring and add your information to our website.
+You also secured yourself access to the VIP area.
+<%- end -%>
+
+You can view your payment here:
+<%= payment_url(@payment.transaction_id) %>
+
 <%- if @password -%>
 
 Your password to access the private area is:
@@ -14,6 +24,7 @@ Your password to access the private area is:
 ================
 <%- end -%>
 
-As soon as we have further information, we will let you know.
+While we work on making this event as good as possible, we will contact you again with more information.
+Please stay tuned.
 
 If you have ideas or question, simply reply to this email.

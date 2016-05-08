@@ -42,6 +42,8 @@ class PaymentsController < ApplicationController
         paid = true
         @payment.transaction_id = charge.id
         @payment.confirmed = true
+        @payment.amount = charge.amount
+        @payment.currency = charge.currency
       rescue Stripe::CardError => e
         error = e
       end

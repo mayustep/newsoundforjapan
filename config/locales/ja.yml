@@ -145,26 +145,28 @@ ja:
     form:
       prohibited_this_fund_from_bein: 
     show:
-      be_a_part_of_bfundnameb_html: 
-      charity_¥mathfloorpaymentamoun: 
-      coming_soon: 
-      custom_amount: 
-      customize_distribution: 
-      edit: 
-      email: 
-      make_your_contribution_public: 
-      'no': 
-      pay_what_you_want: 
-      pay_with_card: 
-      pay_with_card_pay_with_paypal_: 
-      payment_info: 
-      staff_artists_¥mathceilpayment: 
-      we_will_send_a_confirmation_wi: 
-      where_your_money_will_go: 
-      'yes': 
-      "¥‎1000": 
-      "¥‎2000": 
-      "¥‎5000": 
+      be_a_part_of_bfundnameb_html: Be a part of <b>%{fundname}</b>
+      charity_¥mathfloorpaymentamoun: 'Earthquake relief: ¥{{Math.floor(payment.amount * 0.15)}}'
+      coming_soon: Coming soon.
+      custom_amount: Custom Amount
+      customize_distribution: Customize distribution
+      edit: Edit
+      email: E-mail
+      make_your_contribution_public: Make your contribution public
+      'no': 'No'
+      pay_what_you_want: Pay what you want
+      pay_with_card: Pay with Card
+      pay_with_card_pay_with_paypal_: Pay with card | Pay with paypal | Pay with amazon
+      payment_info: All major credit cards are accepted. Payment processing fees will be deducted proportionally from the payment amounts that are indicated above. Fees average between 3 to 6% across all transactions, but may vary depending on a number of factors, including your location, purchase price, and payment method. If required by law, we also deduct VAT where applicable. Please note that artists and line-up are subject to change at any time.
+      staff_artists_¥mathceilpayment: 'Staff & Artists: ¥{{Math.ceil(payment.amount * 0.85)}}'
+      we_will_send_a_confirmation_wi: We will send a confirmation with your ticket number to this email address.
+      where_your_money_will_go: Where your money will go
+      will_be_refunded: 'Refund policy: In case the event is cancelled, all payments are to be refunded. Please note that it is not possible to request a refund for reasons other than event cancellation.'
+      pay_more: Pay more than the current average of ¥%{average} to gain access to the VIP and investor relations area where you can declare your payment as investment and add your company to the list of sponsors.
+      'yes': 'Yes'
+      "¥‎1000": "¥‎1000"
+      "¥‎2000": "¥‎2000"
+      "¥‎5000": "¥‎5000"
   hello: Hello world
   helpers:
     select:

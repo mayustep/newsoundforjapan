@@ -11,6 +11,7 @@ gem 'jquery-ui-rails'
 gem 'acts_as_list'
 gem 'rbjs'
 gem 'maxminddb'
+gem "font-awesome-rails"
 # gem 'localeapp'
 
 # Use Puma as the app server

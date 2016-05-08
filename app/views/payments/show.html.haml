@@ -5,3 +5,8 @@
         %h1 Thank you so much for your investment and support!
         %p A confirmation has been sent to #{@payment.user.email}.
         %p Your ticket number for #{@payment.fund.name} is <b>#{@payment.formatted_number}</b>
+        - if @payment.more_than_average
+          %h1 You have beat the average!
+          %p You secured yourself access to the VIP area.
+          %p You will also be able to declare your payment as investment or sponsoring (under construction)
+            

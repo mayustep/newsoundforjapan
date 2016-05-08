@@ -19,8 +19,16 @@ class Payment < ApplicationRecord
   belongs_to :fund
 
   scope :paid, -> { where :confirmed => true, :refunded_at => nil }
+  scope :published, -> { where :public => true }
   
   def formatted_number
     id.to_s.rjust(6, '0').insert(3,'-')
   end
+  
+  def more_than_average
+    # add a 3 minute buffer
+    amount > (fund.payments.where(:confirmed => true).where(['created_at < ?', self.created_at - 3.minutes]).average(:amount) || 0)
+  end
+  
+  
 end

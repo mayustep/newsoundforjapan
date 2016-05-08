@@ -13,6 +13,15 @@
         %p Current Line-up
         - @fund.goals.each do |goal|
           = image_tag goal.image.thumb('300x300#').url
+  .wrap.container-fluid
+    .row
+      .col-xs-12
+        %p Sponsors
+        .pay_more
+          = fa_icon 'info-circle'
+          %p= t('.pay_more', :average => number_with_delimiter(@fund.payment_average))
+        - @fund.payments.paid.published do |sponsor_payment|
+          = image_tag goal.image.thumb('300x300#').url
         
 
 - payment = Payment.new(:fund => @fund, :amount => 1000)
@@ -20,6 +29,7 @@
   .wrap.container-fluid
     .row
       .col-xs-12
+        
         = form_for payment, :html => {:class => 'purchase_form'} do |f|
           .section.name= t('.be_a_part_of_bfundnameb_html', :fundname => (@fund.name))
           .section.amount
@@ -38,10 +48,10 @@
             .with_popup
               %span.dashed= t('.customize_distribution')
               %aside= t('.coming_soon')
-          .section.identity
-            %label= t('.make_your_contribution_public')
-            .toggle_button{':class' => '{active: payment.public}', '@click' => 'payment.public = true'}= t('.yes')
-            .toggle_button{':class' => '{active: !payment.public}', '@click' => 'payment.public = false'}= t('.no')
+          -# .section.identity
+          -#   %label= t('.make_your_contribution_public')
+          -#   .toggle_button{':class' => '{active: payment.public}', '@click' => 'payment.public = true'}= t('.yes')
+          -#   .toggle_button{':class' => '{active: !payment.public}', '@click' => 'payment.public = false'}= t('.no')
           .section.email
             = f.fields_for :user do |uf|
               %label= t('.email')
@@ -49,8 +59,10 @@
               %p= t('.we_will_send_a_confirmation_wi')
           .section.payment
             .pay_with_stripe= t('.pay_with_card')
-
         .payment_info= t '.payment_info'
+        
+        
+        
 
 = form_for @fund.payments.new, :html => {:id => 'payment_form'} do |f|
   = f.hidden_field :fund_id

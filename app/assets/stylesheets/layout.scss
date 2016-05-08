@@ -7,6 +7,7 @@
 .hero {
   position: relative;
   .hero_image {
+    display: inline-block;
     height: 130px;
     width: 130px;
     background-image: asset_url('newsoundforjapan');
@@ -65,8 +66,19 @@
   h1 {
     margin-bottom: 15px;
   }
+  padding-bottom: 50px;
   padding-top: 60px;
   background: #494f5c;
+  .pay_more {
+    .fa-info-circle {
+      float: left;
+      font-size: 60px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+    padding: 20px 30px;
+    background-color: lighten(#494f5c, 10);
+  }
 }
 .pay_section {
   padding-top: 60px;
@@ -82,7 +94,7 @@
       &:last-child {
         border: none;
       }
-      &.name,&.distribution,&.email {
+      &.name,&.distribution,&.payment {
         background-color: #d5d9e1;
       }
     }
@@ -92,7 +104,7 @@
       background-color: #858585;
       background: linear-gradient(#d5d9e1, #b7b7b9);
       border-color: #088ef0;
-      padding: 8px 16px;
+      padding: 4px 15px;
       border-radius: 20px;
       &.active {
         background: linear-gradient(#34a5f8, #088ef0);
