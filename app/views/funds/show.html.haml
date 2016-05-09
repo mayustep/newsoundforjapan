@@ -24,7 +24,7 @@
                   %span.dash /
                   %span.total ¥#{number_with_delimiter(goal.amount)}
                 .percent{:class => "#{'done' if goal.progress_percent >= 100}"} #{goal.progress_percent}%
-              %p= sanitize goal.description
+              %p= raw goal.description
 .sponsors_section
   .wrap.container-fluid
     .row

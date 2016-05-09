@@ -17,7 +17,7 @@
 //= require redactor
 //= require redactor/ja
 //= require redactor/de
-//= require redactor/video
 //= require redactor/imagemanager
 //= require redactor/filemanager
+//= require redactor/video
 //= require_tree .
