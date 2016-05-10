@@ -158,7 +158,9 @@ en:
       edit: Edit
       email: E-mail
       make_your_contribution_public: Make your contribution public
+      minimum: Minimum ‎¥50 required by payment processor
       'no': 'No'
+      pay_more: Pay more than the current average of ¥%{average} to gain access to the VIP and sponsor area where you can declare your payment as sponsoring. This allows you to list your company as official sponsor.
       pay_what_you_want: Pay what you want
       pay_with_card: Pay with Card
       pay_with_card_pay_with_paypal_: Pay with card | Pay with paypal | Pay with amazon
@@ -166,13 +168,11 @@ en:
       staff_artists_¥mathceilpayment: 'Staff & Artists: ¥{{Math.ceil(payment.amount * 0.85)}}'
       we_will_send_a_confirmation_wi: We will send a confirmation with your ticket number to this email address.
       where_your_money_will_go: Where your money will go
-      will_be_refunded: 'Your money will be refunded if no goal is reached.'
-      pay_more: Pay more than the current average of ¥%{average} to gain access to the VIP and sponsor area where you can declare your payment as sponsoring. This allows you to list your company as official sponsor.
+      will_be_refunded: Your money will be refunded if no goal is reached.
       'yes': 'Yes'
       "¥‎1000": "¥‎1000"
       "¥‎2000": "¥‎2000"
       "¥‎5000": "¥5000"
-      minimum: Minimum ‎¥50 required by payment processor
   hello: Hello world
   helpers:
     select:
@@ -184,7 +184,8 @@ en:
   ja: 日本語
   layouts:
     application:
-      
+      English: English
+      Japanese: 日本語
       amazing_sound: Amazing Sound
       copyright_2016_new_sound_for_j: Copyright 2016 New Sound For Japan
       get_in_touch: Get in touch.
