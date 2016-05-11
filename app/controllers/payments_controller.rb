@@ -6,18 +6,39 @@
 #  fund_id        :integer
 #  user_id        :integer
 #  amount         :integer
-#  currency       :integer
+#  currency       :string
 #  confirmed      :boolean
 #  public         :boolean
 #  transaction_id :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  refunded_at    :datetime
+#  image_name     :string
+#  image_uid      :string
+#  url            :string
 #
 
 class PaymentsController < ApplicationController
-
+  before_action :set_payment, :only => [:update, :show]
+  
   def show
-    @payment = Payment.find_by_transaction_id(params[:id])
+    
+  end
+
+  # PATCH/PUT /payments/1
+  # PATCH/PUT /payments/1.json
+  def update
+    # currently, required knowledge of the transaction id should be secure enough
+    
+    respond_to do |format|
+      if @payment.update(payment_params)
+        format.html { redirect_to @payment, notice: 'Payment was successfully updated.' }
+        format.json { render :show, status: :ok, location: @payment }
+      else
+        format.html { render :edit }
+        format.json { render json: @payment.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # POST /payments
@@ -63,8 +84,11 @@ class PaymentsController < ApplicationController
   end
 
   private
+  def set_payment
+    @payment = Payment.find_by_transaction_id(params[:transaction_id])
+  end
 
   def payment_params
-    params.require(:payment).permit(:fund_id)
+    params.require(:payment).permit(:fund_id, :retained_image, :url, :public)
   end
 end

@@ -33,8 +33,8 @@
         .pay_more
           = fa_icon 'info-circle'
           %p= t('.pay_more', :average => number_with_delimiter(@fund.payment_average))
-        - @fund.payments.paid.published do |sponsor_payment|
-          = image_tag goal.image.thumb('300x300#').url
+        - @fund.payments.paid.published.each do |sponsor_payment|
+          = link_to image_tag(sponsor_payment.image.thumb('200x200#').url), sponsor_payment.url
  
 
 

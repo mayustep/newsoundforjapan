@@ -6,7 +6,15 @@
         %p A confirmation has been sent to #{@payment.user.email}.
         %p Your ticket number for #{@payment.fund.name} is <b>#{@payment.formatted_number}</b>
         - if @payment.more_than_average
-          %h1 You have beat the average!
-          %p You secured yourself access to the VIP area.
-          %p You will also be able to declare your payment as investment or sponsoring (under construction)
-            
+          %h1 Thanks for beating the average
+          %p You can now be listed as official sponsor of this event.
+          = form_for @payment do |f|
+            = f.image_upload_field :image
+            .field
+              = f.label :url
+              = f.text_field :url
+            .field
+              = f.label :public
+              = f.check_box :public
+            .actions
+              = f.submit

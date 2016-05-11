@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :pages
   resources :sessions
   resources :goals
-  resources :payments
+  resources :payments, :param => :transaction_id
   resources :funds
   resources :users
   resources :uploads

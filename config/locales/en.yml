@@ -160,7 +160,7 @@ en:
       make_your_contribution_public: Make your contribution public
       minimum: Minimum ‎¥50 required by payment processor
       'no': 'No'
-      pay_more: Pay more than the current average of ¥%{average} to gain access to the VIP and sponsor area where you can declare your payment as sponsoring. This allows you to list your company as official sponsor.
+      pay_more: Pay more than the current average of ¥%{average} to gain access to the VIP and sponsor area where you can list yourself or your company as official sponsor.
       pay_what_you_want: Pay what you want
       pay_with_card: Pay with Card
       pay_with_card_pay_with_paypal_: Pay with card | Pay with paypal | Pay with amazon

@@ -6,12 +6,16 @@
 #  fund_id        :integer
 #  user_id        :integer
 #  amount         :integer
-#  currency       :integer
+#  currency       :string
 #  confirmed      :boolean
 #  public         :boolean
 #  transaction_id :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  refunded_at    :datetime
+#  image_name     :string
+#  image_uid      :string
+#  url            :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
