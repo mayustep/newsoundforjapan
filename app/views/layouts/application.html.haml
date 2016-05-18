@@ -8,6 +8,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   %body
+    = yield :before_content if content_for? :before_content
     .content
       .top_section
         .wrap.container-fluid
@@ -30,7 +31,3 @@
         %p
           = t('.want_to_do_something_similar_i')
           %a(href="mailto:hello@newsoundforjapan.com")= t('.get_in_touch')
-
-
-
-    -# = yield

@@ -145,7 +145,7 @@ ja:
       prohibited_this_fund_from_bein: 
     show:
       be_a_part_of_bfundnameb_html: Be a part of <b>%{fundname}</b>
-      charity_¥mathfloorpaymentamoun: '震災支援: ¥{{Math.floor(payment.amount * 0.15)}}'
+      to_organizers: 'Organizers: ¥{{Math.floor(payment.amount * 0.15)}}'
       coming_soon: Coming soon.
       custom_amount: Custom Amount
       customize_distribution: Customize distribution
@@ -159,7 +159,7 @@ ja:
       pay_with_card: カードで支払う
       pay_with_card_pay_with_paypal_: カードで支払う | paypalで支払う | Amazonで支払う
       payment_info: 'すべての大手クレジットカードがご利用できます。支援金額に応じてお支払手数料が差し引かれます。 手数料はすべての取引において支援金額の3％から６％となりますが、支援者の所在地や支援金額、お支払方法によって変動いたします。 また法律により付加価値税を差し引くことがあります。アーティストとラインアップは随時変更される可能性がありますのでご了承ください。 '
-      staff_artists_¥mathceilpayment: 'Staff & Artists: ¥{{Math.ceil(payment.amount * 0.85)}}'
+      to_artists: 'Artists: ¥{{Math.ceil(payment.amount * 0.85)}}'
       we_will_send_a_confirmation_wi: あなたのメールアドレスにチケットナンバーの確認メールを送信いたしました。
       where_your_money_will_go: Where your money will go
       will_be_refunded: 目標が達成されなかった場合、支援金は返済されます。
@@ -167,6 +167,8 @@ ja:
       "¥‎1000": "¥‎1000"
       "¥‎2000": "¥‎2000"
       "¥‎5000": "¥‎5000"
+      support_this_html: 'Support <b>%{fund}</b> and get a ticket:'
+      current_goals: These are our current goals. Please help us book these artists by supporting this event.
   hello: Hello world
   helpers:
     select:

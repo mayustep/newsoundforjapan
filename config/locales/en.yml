@@ -151,7 +151,7 @@ en:
       prohibited_this_fund_from_bein: 'prohibited this fund from being saved:'
     show:
       be_a_part_of_bfundnameb_html: Be a part of <b>%{fundname}</b>
-      charity_¥mathfloorpaymentamoun: 'Earthquake relief: ¥{{Math.floor(payment.amount * 0.15)}}'
+      to_organizers: 'Organizers: ¥{{Math.floor(payment.amount * 0.15)}}'
       coming_soon: Coming soon.
       custom_amount: Custom Amount
       customize_distribution: Customize distribution
@@ -165,7 +165,7 @@ en:
       pay_with_card: Pay with Card
       pay_with_card_pay_with_paypal_: Pay with card | Pay with paypal | Pay with amazon
       payment_info: All major credit cards are accepted. Payment processing fees will be deducted proportionally from the payment amounts that are indicated above. Fees average between 3 to 6% across all transactions, but may vary depending on a number of factors, including your location, purchase price, and payment method. If required by law, we also deduct VAT where applicable. Please note that artists and line-up are subject to change at any time.
-      staff_artists_¥mathceilpayment: 'Staff & Artists: ¥{{Math.ceil(payment.amount * 0.85)}}'
+      to_artists: 'Artists: ¥{{Math.ceil(payment.amount * 0.85)}}'
       we_will_send_a_confirmation_wi: We will send a confirmation with your ticket number to this email address.
       where_your_money_will_go: Where your money will go
       will_be_refunded: Your money will be refunded if no goal is reached.
@@ -173,6 +173,8 @@ en:
       "¥‎1000": "¥‎1000"
       "¥‎2000": "¥‎2000"
       "¥‎5000": "¥5000"
+      support_this_html: 'Support <b>%{fund}</b> and get a ticket:'
+      current_goals: These are our current goals. Please help us book these artists by supporting this event.
   hello: Hello world
   helpers:
     select:

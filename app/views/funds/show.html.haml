@@ -1,3 +1,23 @@
+- content_for :before_content do
+  .top_bar.hidden
+    .wrap.container-fluid
+      .row
+        .col-xs-12
+          %a.hero_image{:href => root_url}
+          .pay_what_you_want_button= t('.pay_what_you_want')
+          .support= t('.support_this_html', :fund => @fund.name)
+          
+  :coffee
+    hideOrShowTopBar = ->
+      pastTop = $(document).scrollTop() < $('.top_section').offset().top + $('.top_section').height()
+      beforePayment = $(document).scrollTop() > $('.pay_section').offset().top - $('.top_bar').height()
+      $('.top_bar').toggleClass 'hidden', pastTop || beforePayment
+    $(document).on 'scroll', hideOrShowTopBar
+    $('.pay_what_you_want_button').on 'click', ->
+      body = $("html, body")
+      body.stop().animate({scrollTop:$('.pay_section').offset().top}, '1500', 'swing')
+      
+
 .main_section
   .wrap.container-fluid
     - if @current_user == @fund.user
@@ -10,7 +30,7 @@
     .row
       .col-xs-12
         %h1= @fund.name
-        %p Current Line-up
+        %p= t('.current_goals')
         - @fund.goals.each do |goal|
           .goal
             = image_tag goal.image.thumb('300x300#').url, :class => 'goal_image'
@@ -60,9 +80,9 @@
           .section.distribution
             %label= t('.where_your_money_will_go')
             %p
-              = t('.staff_artists_¥mathceilpayment')
+              = t('.to_artists')
             %p
-              = t('.charity_¥mathfloorpaymentamoun')
+              = t('.to_organizers')
             .with_popup
               %span.dashed= t('.customize_distribution')
               %aside= t('.coming_soon')

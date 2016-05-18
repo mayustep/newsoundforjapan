@@ -17,6 +17,56 @@
   }
 }
 
+.top_bar {
+  z-index: 1000;
+  width: 100%;
+  position: fixed;
+  background-color: #282c34;
+  transition: 0.6s;
+  top: 0px;
+  height: 66px;
+  padding-top: 10px;
+  &.hidden {
+    top: -66px;
+  }
+  .support {
+    margin-top: 8px;
+    margin-right: 6px;
+    float: right;
+  }
+  .pay_what_you_want_button {
+      float: right;
+      background-color: #17a1e6;
+      background: linear-gradient(-180deg, #4dc4ff 0%, #17a1e6 100%);
+      color: white !important;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+      text-align: center;
+      vertical-align: top;
+      box-sizing: border-box;
+      border-radius: 3px;
+      border: none;
+      box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.1),inset 0px 0px 0px 1px rgba(0,0,0,0.2),inset 0px 2px 0px 0px rgba(255,255,255,0.2);
+      color: #484f5c;
+      cursor: pointer;
+      font-size: 15px;
+      height: 46px;
+      margin: 0;
+      padding: 11px 9px 9px 9px;
+      text-decoration: none;
+      width: 157px;
+      margin-right: 5px;
+      line-height: 26px;
+      display: inline-block;
+      &:hover {
+        background: linear-gradient(-180deg, #80d4ff 0%, #19b2ff 100%);
+      }
+      &:active {
+        background: #148fcc;
+        box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.2),inset 0px 0px 0px 1px rgba(0,0,0,0.2);
+      }
+  }
+}
+
 .top_section {
   padding-top: 30px;
   padding-bottom: 30px;
@@ -256,6 +306,7 @@ body {
   background-color: #3b3e48;
   position: relative;
   color: #EEEEFE;
+  font-weight: 400;
   font-family: 'Titillium Web', sans-serif;
   text-rendering: optimizeLegibility;
   font-size: 19px;
