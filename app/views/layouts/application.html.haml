@@ -15,19 +15,18 @@
           .row
             .col-xs-12
               .hero
-                %a.hero_image{:href => root_url}
-                .features
-                  %p.pay= t('.pay_what_you_want')
-                  %p.ticket= t('.get_tickets')
-                  %p.meet= t('.meet_the_artists')
-                  %p.charity= t('.support_charity')
+                -# %a.hero_image{:href => root_url}
+                -# .features
+                  -# %p.pay= t('.pay_what_you_want')
+                  -# %p.ticket= t('.get_tickets')
+                  -# %p.meet= t('.meet_the_artists')
+                  -# %p.charity= t('.support_charity')
                 .language_select
                   = link_to t('en'), '?locale=en', :class => ('active' if I18n.locale == :en)
                   = link_to t('ja'), '?locale=ja', :class => ('active' if I18n.locale == :ja)
       = yield
     .footer
       .wrap.container-fluid
-        %p= t('.copyright_2016_new_sound_for_j')
+        %p Copyright 2016 Stefan Corporation
         %p
-          = t('.want_to_do_something_similar_i')
-          %a(href="mailto:hello@newsoundforjapan.com")= t('.get_in_touch')
+          %a(href="mailto:hello@newsoundforjapan.com") hello@newsoundforjapan.com
