@@ -6,7 +6,11 @@
 
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-
+    %meta{:property => "og:url", :content => request.url }
+    %meta{:property => "og:type", :content => "article" }
+    %meta{:property => "og:title", :content => "New Sound For Japan" }
+    %meta{:property => "og:description", :content => "Enjoy Japan. Enjoy the Sound. We're bringing back the good shit. All Artists, Venues and Events in one place." }
+    %meta{:property => "og:image", :content => asset_url('logo.png') }
   %body
     = yield :before_content if content_for? :before_content
     .content
