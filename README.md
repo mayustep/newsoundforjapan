@@ -1,3 +1,5 @@
-# Deprecated
+# New Sound For Japan
 
-Going forward, the app will be rewritten as a single page application.
+Source code for the newsoundforjapan.com website.
+
+Japan's Artists, Venues and Events all in one place.

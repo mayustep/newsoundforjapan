@@ -5,32 +5,46 @@
     = csrf_meta_tags
 
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'path/to/font-awesome/css/font-awesome.min.css'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %meta{:property => "og:url", :content => request.url }
     %meta{:property => "og:type", :content => "article" }
     %meta{:property => "og:title", :content => "New Sound For Japan" }
-    %meta{:property => "og:description", :content => "Enjoy Japan. Enjoy the Sound. We're bringing back the good shit. All Artists, Venues and Events in one place." }
+    %meta{:property => "og:description", :content => "Enjoy Japan. Enjoy the Sound. We're bringing back the good shit." }
     %meta{:property => "og:image", :content => asset_url('logo.png') }
-  %body
+  %body.application
     = yield :before_content if content_for? :before_content
-    .content
-      .top_section
-        .wrap.container-fluid
-          .row
-            .col-xs-12
-              .hero
-                -# %a.hero_image{:href => root_url}
-                -# .features
-                  -# %p.pay= t('.pay_what_you_want')
-                  -# %p.ticket= t('.get_tickets')
-                  -# %p.meet= t('.meet_the_artists')
-                  -# %p.charity= t('.support_charity')
-                .language_select
-                  = link_to t('en'), '?locale=en', :class => ('active' if I18n.locale == :en)
-                  = link_to t('ja'), '?locale=ja', :class => ('active' if I18n.locale == :ja)
-      = yield
-    .footer
-      .wrap.container-fluid
-        %p Copyright 2016 Stefan Corporation
-        %p
-          %a(href="mailto:hello@newsoundforjapan.com") hello@newsoundforjapan.com
+    %header
+      .container-fluid
+        .user_area
+          = link_to "Log in", new_session_path
+          = link_to "Sign up", new_session_path, :class => 'sign_up'
+        .language_select
+          = link_to t('en'), '?locale=en', :class => ('active' if I18n.locale == :en)
+          = link_to t('ja'), '?locale=ja', :class => ('active' if I18n.locale == :ja)
+    %nav
+      .header
+        .small_logo
+          = link_to image_tag('newsoundforjapantext.png'), root_url
+          
+      %ul
+        -# %li.title Browse
+        = link_to artists_path do
+          %li.item{:class => "#{'on' if params[:controller] == 'artists'}"} 
+            %i.fa.fa-user
+            Artists
+        = link_to venues_path do
+          %li.item{:class => "#{'on' if params[:controller] == 'venues'}"} 
+            %i.fa.fa-home
+            Venues
+        = link_to events_path do
+          %li.item{:class => "#{'on' if params[:controller] == 'events'}"} 
+            %i.fa.fa-heart
+            Events
+    %main
+      .content    
+        = yield
+    %footer
+      %p Copyright 2016 Stefan Corporation
+      %p
+        %a(href="mailto:hello@newsoundforjapan.com") hello@newsoundforjapan.com

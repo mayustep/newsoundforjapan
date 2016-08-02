@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :venues
+  resources :artists
+  resources :events
   resources :pages
   resources :sessions
   resources :goals
