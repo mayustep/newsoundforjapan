@@ -11,15 +11,24 @@
 class Session < ApplicationRecord
   belongs_to :user
 
-
-  attr_accessor :email, :password
+  attr_accessor :email, :password, :auth_hash
 
   def email= (value)
     @email = value
     self.user = User.where(:email => @email).first
   end
+  
+  def auth_hash= (value)
+    @auth_hash = value
+    self.user = User.find_or_create_from_auth_hash(@auth_hash)
+  end
 
   validate do
-    errors.add(:user, 'could not be authenticated') unless user && user.authenticate(password)
+    if @auth_hash
+      
+    else
+      errors.add(:user, 'could not be authenticated') unless user && user.authenticate(password)
+    end
   end
+
 end

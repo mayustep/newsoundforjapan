@@ -9,7 +9,7 @@
 #
 
 class SessionsController < ApplicationController
-  before_action :set_session, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /sessions
   # GET /sessions.json
@@ -34,8 +34,12 @@ class SessionsController < ApplicationController
   # POST /sessions
   # POST /sessions.json
   def create
-    @session = Session.new(session_params)
-
+    if request.env['omniauth.auth']
+      @session = Session.new(:auth_hash => request.env['omniauth.auth'])
+    else
+      @session = Session.new(session_params)
+    end
+    
     respond_to do |format|
       if @session.save
         session[:user_id] = @session.user_id
@@ -46,6 +50,7 @@ class SessionsController < ApplicationController
         format.json { render json: @session.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /sessions/1
@@ -65,9 +70,9 @@ class SessionsController < ApplicationController
   # DELETE /sessions/1
   # DELETE /sessions/1.json
   def destroy
-    @session.destroy
+    session[:user_id] = nil
     respond_to do |format|
-      format.html { redirect_to sessions_url, notice: 'Session was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: 'Session was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -81,5 +86,11 @@ class SessionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def session_params
       params.require(:session).permit(:email, :password)
+    end
+
+    protected
+
+    def auth_hash
+      request.env['omniauth.auth']
     end
 end

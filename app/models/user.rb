@@ -11,10 +11,26 @@
 #
 
 class User < ApplicationRecord
+  dragonfly_accessor :image
+  
   has_secure_password
   has_many :payments
   has_many :uploads
   has_many :funds
-
+  has_many :identities
+  
+  def self.find_or_create_from_auth_hash(auth_hash)
+    identity = Identity.where(:provider => auth_hash[:provider], :provider_id => auth_hash[:uid]).first_or_create do |identity|
+      identity.user = User.where(:email => auth_hash[:info][:email]).first_or_create(:password => SecureRandom.base64(10)[0..7])
+    end
+    identity.token = auth_hash[:credentials][:token]
+    identity.expires_at = auth_hash[:credentials][:expires_at]
+    identity.save
+    user = identity.user
+    user.name = auth_hash[:info][:name]
+    user.image_url = auth_hash[:info][:image]
+    user.save
+    user
+  end
 
 end

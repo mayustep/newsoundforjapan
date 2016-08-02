@@ -17,15 +17,26 @@
     %header
       .container-fluid
         .user_area
-          = link_to "Log in", new_session_path
-          = link_to "Sign up", new_session_path, :class => 'sign_up'
+          - if @current_user
+            = image_tag @current_user.image.thumb('200x200').url, :class => 'profile_image'
+            = @current_user.name
+            = link_to "Log out", session_path, :method => :delete
+          - else
+            .signed_out
+              = link_to "Log in", new_session_path, :class => 'email'
+              = link_to '/auth/facebook', :class => 'facebook' do
+                %i.fa.fa-facebook
+                Sign up
+              = link_to new_session_path, :class => 'sign_up' do
+                %i.fa.fa-envelope
+                Sign up
         .language_select
           = link_to t('en'), '?locale=en', :class => ('active' if I18n.locale == :en)
           = link_to t('ja'), '?locale=ja', :class => ('active' if I18n.locale == :ja)
     %nav
       .header
         .small_logo
-          = link_to image_tag('newsoundforjapantext.png'), root_url
+          = link_to image_tag('newsoundforjapantext2.png'), root_url
           
       %ul
         -# %li.title Browse

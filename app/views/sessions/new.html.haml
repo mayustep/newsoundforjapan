@@ -1,0 +1,6 @@
+%h1 Log in
+= render 'form', session: @session
+
+= link_to '/auth/facebook', :class => 'facebook' do
+  %i.fa.fa-facebook
+  Log in with Facebook

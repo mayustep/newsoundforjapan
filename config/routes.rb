@@ -3,14 +3,14 @@ Rails.application.routes.draw do
   resources :artists
   resources :events
   resources :pages
-  resources :sessions
+  resource :session
   resources :goals
   resources :payments, :param => :transaction_id
   resources :funds
   resources :users
   resources :uploads
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/auth/:provider/callback', to: 'sessions#create'
   
   root :to => 'pages#index'
   #root :to => 'funds#index'

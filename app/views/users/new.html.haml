@@ -1,0 +1,6 @@
+%h1 Registration
+= render 'form', user: @user
+
+= link_to '/auth/facebook', :class => 'facebook' do
+  %i.fa.fa-facebook
+  Sign up with Facebook

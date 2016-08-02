@@ -25,14 +25,30 @@ header {
   .user_area {
     float: right;
     height: $headerHeight;
-    padding-top: 20px;
+    
     border-left: 1px solid #242427;
-    padding-left: 20px;
+    
+    vertical-align: middle;
+    .signed_out {
+      padding-left: 20px;
+      padding-top: 20px;
+    }
+    .profile_image {
+      height: $headerHeight;
+      vertical-align: middle;
+    }
     .sign_up {
       background: $brandColor;
       padding: 3px 10px;
       color: #EEEEFE;
       margin-left: 20px;
+    }
+    .facebook {
+      background: #3b5998;
+      padding: 3px 10px;
+      color: #EEEEFE;
+      margin-left: 20px;
+      .fa {margin-right: 6px;}
     }
   }
   .language_select {
@@ -51,11 +67,6 @@ header {
         border-bottom: 2px solid $brandColor;
       }  
     }
-  }
-  .settings {
-    position: absolute;
-    top: 120px;
-    left: 210px;
   }
 }
 
@@ -76,7 +87,7 @@ nav {
     border-bottom: 1px solid #242427;
   }
   .small_logo img {
-    margin-top: 25px;
+    margin-top: 18px;
     margin-left: 10px;
     width: 260px;
     padding: 5px 0;

@@ -12,6 +12,9 @@ gem 'acts_as_list'
 gem 'rbjs'
 gem 'maxminddb'
 gem "font-awesome-rails"
+
+gem 'omniauth'
+gem 'omniauth-facebook'
 # gem 'localeapp'
 
 # Use Puma as the app server
