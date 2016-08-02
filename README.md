@@ -1,3 +1,3 @@
-# Deprecated
+# New Sound For Japan
 
-Going forward, the app will be rewritten as a single page application.
+Japan's Artists, Venues and Events all in one place.
