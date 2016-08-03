@@ -15,7 +15,8 @@ module ApplicationHelper
       authorization_uri: 'https://accounts.google.com/o/oauth2/auth',
       scope: Google::Apis::CalendarV3::AUTH_CALENDAR,
       state: object.id,
-      redirect_uri: link_calendar_session_url
+      redirect_uri: link_calendar_session_url,
+      additional_parameters: {"access_type" => "offline"}
     })
     client.authorization_uri.to_s
   end

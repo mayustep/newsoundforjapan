@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803052935) do
+ActiveRecord::Schema.define(version: 20160803063159) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "image_uid"
     t.string   "email"
     t.string   "image_name"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20160803052935) do
     t.string   "logo_name"
     t.datetime "representation_agreed_at"
     t.string   "google_calendar_token"
+    t.string   "google_calendar_refresh_token"
+    t.string   "google_calendar_id"
   end
 
   create_table "bookings", force: :cascade do |t|

@@ -82,14 +82,16 @@ class SessionsController < ApplicationController
       client_id: ENV.fetch('GOOGLE_API_CLIENT_ID'),
       client_secret: ENV.fetch('GOOGLE_API_CLIENT_SECRET'),
       token_credential_uri: 'https://accounts.google.com/o/oauth2/token',
-      redirect_uri: url_for(:action => :callback),
+      redirect_uri: link_calendar_session_url,
       code: params[:code]
     })
 
     response = client.fetch_access_token!
     
-    artist = Artist.find(response['state'])
+    artist = Artist.find(params[:state])
+    # TODO: check if user has management rights
     artist.google_calendar_token = response['access_token']
+    artist.google_calendar_refresh_token = response['refresh_token']
     artist.save
     
     redirect_to artist, notice: 'Calendar has been linked to Artist.'
