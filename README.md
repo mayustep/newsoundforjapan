@@ -4,6 +4,22 @@ Source code for the newsoundforjapan.com website.
 
 Japan's Artists, Venues and Events all in one place.
 
+## 1.0 Feature Roadmap
+
+### For Artists
+
+- Connect to Google Calendar, and automatically sync your availability.
+- Get paid before your gig, hazzle free.
+- Direct access to the promoter. Managers not required. If something goes wrong, we're here to help.
+
+### For Organizers and Promoters
+
+- Book multiple artists at once
+
+### For everyone
+
+- Use email as main communication tool and handle payments through the website
+- Don't speak Japanese? Don't speak English? Our human agents will translate all messages for you. For free.
 
 ## Get started
 
