@@ -76,6 +76,24 @@ class SessionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def link_calendar
+    client = Signet::OAuth2::Client.new({
+      client_id: ENV.fetch('GOOGLE_API_CLIENT_ID'),
+      client_secret: ENV.fetch('GOOGLE_API_CLIENT_SECRET'),
+      token_credential_uri: 'https://accounts.google.com/o/oauth2/token',
+      redirect_uri: url_for(:action => :callback),
+      code: params[:code]
+    })
+
+    response = client.fetch_access_token!
+    
+    artist = Artist.find(response['state'])
+    artist.google_calendar_token = response['access_token']
+    artist.save
+    
+    redirect_to artist, notice: 'Calendar has been linked to Artist.'
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

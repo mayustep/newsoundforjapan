@@ -7,4 +7,16 @@ module ApplicationHelper
     end
     link_to(name, '#', :class => "add_fields", :data => {:id => id, :fields => fields.gsub("\n", "")})
   end
+  
+  def google_calendar_auth_path(object)
+    client = Signet::OAuth2::Client.new({
+      client_id: ENV.fetch('GOOGLE_API_CLIENT_ID'),
+      client_secret: ENV.fetch('GOOGLE_API_CLIENT_SECRET'),
+      authorization_uri: 'https://accounts.google.com/o/oauth2/auth',
+      scope: Google::Apis::CalendarV3::AUTH_CALENDAR,
+      state: object.id,
+      redirect_uri: link_calendar_session_url
+    })
+    client.authorization_uri.to_s
+  end
 end

@@ -9,7 +9,7 @@
 #
 
 class ArtistsController < ApplicationController
-  before_action :set_artist, only: [:show, :edit, :update, :destroy]
+  before_action :set_artist, only: [:show, :edit, :update, :destroy, :link_calendar]
 
   # GET /artists
   # GET /artists.json
@@ -70,6 +70,8 @@ class ArtistsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+    
 
   private
     # Use callbacks to share common setup or constraints between actions.

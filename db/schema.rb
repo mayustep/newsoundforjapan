@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803004127) do
+ActiveRecord::Schema.define(version: 20160803052935) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160803004127) do
     t.string   "logo_uid"
     t.string   "logo_name"
     t.datetime "representation_agreed_at"
+    t.string   "google_calendar_token"
   end
 
   create_table "bookings", force: :cascade do |t|

@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :artists
   resources :events
   resources :pages
-  resource :session
+  resource :session do
+    get :link_calendar, :on => :member
+  end
   resources :goals
   resources :payments, :param => :transaction_id
   resources :funds

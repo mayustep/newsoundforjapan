@@ -15,5 +15,7 @@
     = f.check_box :representation_agreed
   .field
     = f.image_upload_field :image
+  .field
+    = link_to 'Link to calendar', google_calendar_auth_path(artist)
   .actions
     = f.submit
