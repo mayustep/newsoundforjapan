@@ -21,6 +21,11 @@ Japan's Artists, Venues and Events all in one place.
 - Use email as main communication tool and handle payments through the website
 - Don't speak Japanese? Don't speak English? Our human agents will translate all messages for you. For free.
 
+## 2.0
+
+- Tour planning features
+- Ticket sales
+
 ## Get started
 
 This is a simple Rails 5 application. To get started with development, first install rails and then follow these steps:
