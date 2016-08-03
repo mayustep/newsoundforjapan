@@ -1,0 +1,23 @@
+.content_header
+  .container-fluid
+    .row
+      .col-sm-12
+        %h1 Artists
+        .create
+          = link_to "Add Artist", new_artist_path
+
+.container-fluid
+  .row
+    - @artists.each do |artist|
+      .artist.col-lg-4.col-md-6.col-sm-12
+        .inner
+          - if artist.image
+            .image{:style=>"background-image:url(#{artist.image.thumb('300x300').url})"}
+          - else
+            .image.empty
+          = link_to '', artist, :class => 'artist_link'
+          .info
+            .name
+              = artist.name
+            .booking
+              = link_to 'Available', artist

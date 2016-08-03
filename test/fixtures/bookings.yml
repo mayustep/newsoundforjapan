@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  booker_id: 1
+  bookee_id: 1
+  price: 1
+  currency: MyString
+  bookee_confirmed_at: 2016-08-02 17:26:18
+  booker_confirmed_at: 2016-08-02 17:26:18
+
+two:
+  booker_id: 1
+  bookee_id: 1
+  price: 1
+  currency: MyString
+  bookee_confirmed_at: 2016-08-02 17:26:18
+  booker_confirmed_at: 2016-08-02 17:26:18

@@ -9,4 +9,9 @@
 #
 
 class Artist < ApplicationRecord
+  include Translatable
+
+  accepts_translations_for :description
+  dragonfly_accessor :image
+
 end

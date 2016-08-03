@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Booker:</strong>
+  <%= @booking.booker_id %>
+</p>
+
+<p>
+  <strong>Bookee:</strong>
+  <%= @booking.bookee_id %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @booking.price %>
+</p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @booking.currency %>
+</p>
+
+<p>
+  <strong>Bookee confirmed at:</strong>
+  <%= @booking.bookee_confirmed_at %>
+</p>
+
+<p>
+  <strong>Booker confirmed at:</strong>
+  <%= @booking.booker_confirmed_at %>
+</p>
+
+<%= link_to 'Edit', edit_booking_path(@booking) %> |
+<%= link_to 'Back', bookings_path %>

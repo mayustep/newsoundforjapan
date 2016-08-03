@@ -1,0 +1,4 @@
+%h1= @artist.name
+
+= link_to 'Book now', new_booking_path(:bookee_id => @artist, :bookee_type => @artist.class.name)
+= link_to 'Edit', edit_artist_path(@artist)

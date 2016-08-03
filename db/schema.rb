@@ -10,12 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802191435) do
+ActiveRecord::Schema.define(version: 20160803002837) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "image_uid"
+    t.string   "email"
+    t.string   "image_name"
+    t.string   "logo_uid"
+    t.string   "logo_name"
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "booker_id"
+    t.integer  "bookee_id"
+    t.integer  "price"
+    t.string   "currency"
+    t.datetime "bookee_confirmed_at"
+    t.datetime "booker_confirmed_at"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "bookee_type"
   end
 
   create_table "delayed_jobs", force: :cascade do |t|

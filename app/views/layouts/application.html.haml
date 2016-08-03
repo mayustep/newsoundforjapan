@@ -26,18 +26,17 @@
               = link_to "Log in", new_session_path, :class => 'email'
               = link_to '/auth/facebook', :class => 'facebook' do
                 %i.fa.fa-facebook
-                Sign up
-              = link_to new_session_path, :class => 'sign_up' do
+                Log in
+              = link_to new_user_path, :class => 'sign_up' do
                 %i.fa.fa-envelope
                 Sign up
         .language_select
           = link_to t('en'), '?locale=en', :class => ('active' if I18n.locale == :en)
           = link_to t('ja'), '?locale=ja', :class => ('active' if I18n.locale == :ja)
-    %nav
-      .header
         .small_logo
           = link_to image_tag('newsoundforjapantext2.png'), root_url
-          
+          Alpha
+    %nav
       %ul
         -# %li.title Browse
         = link_to artists_path do
@@ -53,9 +52,18 @@
             %i.fa.fa-heart
             Events
     %main
-      .content    
+      .content
+        = notice
         = yield
     %footer
-      %p Copyright 2016 Stefan Corporation
-      %p
-        %a(href="mailto:hello@newsoundforjapan.com") hello@newsoundforjapan.com
+      .container-fluid
+        .row
+          .col-xs-6
+            %p New Sound For Japan is your personal agent.
+            %p
+              Copyright 2016
+              = link_to "Stefan Corporation", 'http://stefan.co.jp'
+          .col-xs-6
+            %p
+              Contact:
+              %a(href="mailto:hello@newsoundforjapan.com") hello@newsoundforjapan.com
