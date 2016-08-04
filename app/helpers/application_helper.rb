@@ -20,4 +20,9 @@ module ApplicationHelper
     })
     client.authorization_uri.to_s
   end
+  
+  def make_secret(hash)
+    crypt = ActiveSupport::MessageEncryptor.new(ENV['SECRET_KEY_BASE'])
+    crypt.encrypt_and_sign(hash.to_json)
+  end
 end

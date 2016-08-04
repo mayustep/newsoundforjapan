@@ -1,4 +1,8 @@
-%h1= @artist.name
-
-= link_to 'Book now', new_booking_path(:bookee_id => @artist, :bookee_type => @artist.class.name)
-= link_to 'Edit', edit_artist_path(@artist)
+.container-fluid
+  %h1
+    = @artist.name
+    - if @artist.user
+      %i.fa.fa-check.brand
+  = raw @artist.bio
+  = link_to 'Book now', new_booking_path(:bookee_id => @artist, :bookee_type => @artist.class.name), :class => 'button'
+  = link_to 'Edit', edit_artist_path(@artist), :class => 'button' if @artist.managed_by?(@current_user)

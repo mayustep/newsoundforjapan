@@ -1,5 +1,6 @@
-# require 'localeapp/rails'
-#
-# Localeapp.configure do |config|
-#   config.api_key = 'GEqd9lKVVUkFMjn2A0dhE0Ep3WnZFYL5c6a8ceRwNPp0kGkNNw'
-# end
+require 'localeapp/rails'
+Localeapp.configure do |config|
+  config.api_key = ENV['LOCALEAPP_KEY']
+  config.reloading_environments = [:development, :production, :staging]
+  config.polling_environments = []
+end

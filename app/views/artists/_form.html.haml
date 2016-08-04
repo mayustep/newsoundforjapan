@@ -16,6 +16,8 @@
   .field
     = f.image_upload_field :image
   .field
+    = f.translated_text_area :bio
+  .field
     - if artist.google_calendar_token.present?
       
       .calendars

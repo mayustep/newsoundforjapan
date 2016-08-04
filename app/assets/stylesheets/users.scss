@@ -1,3 +1,37 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'globals';
+
+.girls1 {
+  @include aspect-ratio(16, 9);
+  background-image: asset-url('marketing/girls.jpg');
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+  width: 50%;
+}
+.girls2 {
+  @include aspect-ratio(16, 9);
+  background-image: asset-url('marketing/ageha.jpg');
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+  width: 50%;
+}
+
+.bootstrap_artist {
+  padding-left: 40px;
+  img {
+    margin-top: 60px;
+    width: 80%;
+  }
+  h1 {
+    // background-color: darken($bodyColor, 5);
+    margin-top: 20px;
+    margin-bottom: 20px;
+  
+  }
+  .features_section {
+    
+    text-align: left;
+    
+  }
+}

@@ -1,0 +1,10 @@
+.container-fluid
+  %h1 Editing Artist
+  - if @artist.user
+    This page is owned by #{@artist.user.name}
+  - else
+    .bootstrap
+      %p 
+        To claim this artist, use this link:
+        = link_to 'Bootstrap me', new_user_path(:secret => make_secret(:bootstrap_artist_id => @artist.id))
+  = render 'form', artist: @artist

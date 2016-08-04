@@ -16,7 +16,7 @@ gem "font-awesome-rails"
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'google-api-client', '~> 0.9', require: 'google/apis/calendar_v3'
-# gem 'localeapp'
+gem 'localeapp'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'

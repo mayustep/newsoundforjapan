@@ -8,6 +8,8 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  locale          :string
+#  name            :string
+#  image_uid       :string
 #
 
 class User < ApplicationRecord
@@ -18,6 +20,7 @@ class User < ApplicationRecord
   has_many :uploads
   has_many :funds
   has_many :identities
+  has_many :user_relations
   
   def self.find_or_create_from_auth_hash(auth_hash)
     identity = Identity.where(:provider => auth_hash[:provider], :provider_id => auth_hash[:uid]).first_or_create do |identity|

@@ -5,7 +5,6 @@
     = csrf_meta_tags
 
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = stylesheet_link_tag 'path/to/font-awesome/css/font-awesome.min.css'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %meta{:property => "og:url", :content => request.url }
     %meta{:property => "og:type", :content => "article" }
@@ -38,7 +37,7 @@
           Alpha
     %nav
       %ul
-        -# %li.title Browse
+        
         = link_to artists_path do
           %li.item{:class => "#{'on' if params[:controller] == 'artists'}"} 
             %i.fa.fa-user
@@ -51,6 +50,13 @@
           %li.item{:class => "#{'on' if params[:controller] == 'events'}"} 
             %i.fa.fa-heart
             Events
+        - if @current_user && @current_user.user_relations.any?
+        
+          %li.title My Pages
+          - @current_user.user_relations.each do |relation|
+            = link_to relation.relative do
+              %li.item
+                = relation.relative.name
     %main
       .content
         = notice

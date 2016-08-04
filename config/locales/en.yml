@@ -6,6 +6,28 @@ en:
         restrict_dependent_destroy:
           has_many: Cannot delete record because dependent %{record} exist
           has_one: Cannot delete record because a dependent %{record} exists
+    attributes:
+      artist:
+        representation_agreed: Representation agreed
+        name: Name
+      user:
+        email: Email
+        password: Password
+      booking:
+        bookee_id: Bookee
+        price: Price
+        currency: Currency
+        booker_confirmed_at: Booker confirmed at
+        booker_id: Booker
+        bookee_confirmed_at: Bookee confirmed at
+      session:
+        email: Email
+        password: Password
+    models:
+      artist: Artist
+      user: User
+      booking: Booking
+      session: Session
   application_mailer:
     payment_confirmation:
       thank_you: "%{fund} confirmation"
@@ -151,7 +173,7 @@ en:
       prohibited_this_fund_from_bein: 'prohibited this fund from being saved:'
     show:
       be_a_part_of_bfundnameb_html: Be a part of <b>%{fundname}</b>
-      to_organizers: 'Organizers: ¥{{Math.floor(payment.amount * 0.15)}}'
+      charity_¥mathfloorpaymentamoun: 'Earthquake relief: ¥{{Math.floor(payment.amount * 0.15)}}'
       coming_soon: Coming soon.
       custom_amount: Custom Amount
       customize_distribution: Customize distribution
@@ -160,12 +182,12 @@ en:
       make_your_contribution_public: Make your contribution public
       minimum: Minimum ‎¥50 required by payment processor
       'no': 'No'
-      pay_more: Pay more than the current average of ¥%{average} to gain access to the VIP and sponsor area where you can list yourself or your company as official sponsor.
+      pay_more: Pay more than the current average of ¥%{average} to gain access to the VIP and sponsor area where you can declare your payment as sponsoring. This allows you to list your company as official sponsor.
       pay_what_you_want: Pay what you want
       pay_with_card: Pay with Card
       pay_with_card_pay_with_paypal_: Pay with card | Pay with paypal | Pay with amazon
       payment_info: All major credit cards are accepted. Payment processing fees will be deducted proportionally from the payment amounts that are indicated above. Fees average between 3 to 6% across all transactions, but may vary depending on a number of factors, including your location, purchase price, and payment method. If required by law, we also deduct VAT where applicable. Please note that artists and line-up are subject to change at any time.
-      to_artists: 'Artists: ¥{{Math.ceil(payment.amount * 0.85)}}'
+      staff_artists_¥mathceilpayment: 'Staff & Artists: ¥{{Math.ceil(payment.amount * 0.85)}}'
       we_will_send_a_confirmation_wi: We will send a confirmation with your ticket number to this email address.
       where_your_money_will_go: Where your money will go
       will_be_refunded: Your money will be refunded if no goal is reached.
@@ -173,8 +195,6 @@ en:
       "¥‎1000": "¥‎1000"
       "¥‎2000": "¥‎2000"
       "¥‎5000": "¥5000"
-      support_this_html: 'Support <b>%{fund}</b> and get a ticket:'
-      current_goals: These are our current goals. Please help us book these artists by supporting this event.
   hello: Hello world
   helpers:
     select:
@@ -183,6 +203,31 @@ en:
       create: Create %{model}
       submit: Save %{model}
       update: Update %{model}
+      artist:
+        update: Update Artist
+      user:
+        create: Create User
+      booking:
+        create: Create Booking
+      session:
+        create: Create Session
+    label:
+      artist:
+        name: 
+        representation_agreed: 
+      user:
+        email: 
+        password: 
+      booking:
+        bookee_id: 
+        currency: 
+        bookee_confirmed_at: 
+        booker_confirmed_at: 
+        price: 
+        booker_id: 
+      session:
+        password: 
+        email: 
   ja: 日本語
   layouts:
     application:
@@ -260,3 +305,19 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
+  users:
+    new:
+      thank_you: Thank You
+      thank_you_2: " To start using the platform, please confirm your email address and choose a password."
+      hello_artist: Hello %{name}. Welcome to New Sound For Japan!
+      representation_agreement: 
+      features: It's still early, but here is a list of features we are planning to provide
+      description: We would like to list you in our official roster and represent you as official agent in Japan.
+      feature1: Personal, customizable and multilingual artist profile
+      feature2: Automated booking system for promoters
+      feature4: No need for managers or management fees
+      feature5: Competetive rates and guarantees
+      feature6: Accept online payments with credit cards
+      feature3: Unbiased translations and mediation between languages
+      call_to_action: If you like to join us on this journey, click the button below
+      agree: I, %{name}, agree to be listed and represented by New Sound For Japan

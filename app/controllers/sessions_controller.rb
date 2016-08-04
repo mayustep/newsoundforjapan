@@ -42,8 +42,18 @@ class SessionsController < ApplicationController
     
     respond_to do |format|
       if @session.save
+        if session[:bootstrap_artist_id] && session[:agreed]
+          @bootstrap_artist = Artist.find(session[:bootstrap_artist_id])
+          @bootstrap_artist.update(:representation_agreed => true)
+          UserRelation.create(:relation => 'is', :user_id => @session.user_id, :relative => @bootstrap_artist)
+        end
+        session.clear
         session[:user_id] = @session.user_id
-        format.html { redirect_to root_url, notice: 'Session was successfully created.' }
+        if @bootstrap_artist
+          format.html { redirect_to edit_artist_path(@bootstrap_artist) }
+        else
+          format.html { redirect_to root_url }
+        end
         format.json { render :show, status: :created, location: @session }
       else
         format.html { render :new }
@@ -70,7 +80,7 @@ class SessionsController < ApplicationController
   # DELETE /sessions/1
   # DELETE /sessions/1.json
   def destroy
-    session[:user_id] = nil
+    session.clear
     respond_to do |format|
       format.html { redirect_to root_url, notice: 'Session was successfully destroyed.' }
       format.json { head :no_content }

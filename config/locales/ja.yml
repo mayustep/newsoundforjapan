@@ -6,6 +6,24 @@ ja:
         restrict_dependent_destroy:
           has_many: "%{record}が存在しているので削除できません"
           has_one: "%{record}が存在しているので削除できません"
+    attributes:
+      artist:
+        representation_agreed: 
+      user:
+        password: 
+      booking:
+        bookee_id: 
+        price: 
+        currency: 
+        booker_id: 
+        bookee_confirmed_at: 
+      session:
+        email: 
+        password: 
+    models:
+      artist: 
+      user: 
+      session: 
   application_mailer:
     payment_confirmation:
       thank_you: "%{fund} confirmation"
@@ -145,7 +163,7 @@ ja:
       prohibited_this_fund_from_bein: 
     show:
       be_a_part_of_bfundnameb_html: Be a part of <b>%{fundname}</b>
-      to_organizers: 'Organizers: ¥{{Math.floor(payment.amount * 0.15)}}'
+      charity_¥mathfloorpaymentamoun: '震災支援: ¥{{Math.floor(payment.amount * 0.15)}}'
       coming_soon: Coming soon.
       custom_amount: Custom Amount
       customize_distribution: Customize distribution
@@ -159,7 +177,7 @@ ja:
       pay_with_card: カードで支払う
       pay_with_card_pay_with_paypal_: カードで支払う | paypalで支払う | Amazonで支払う
       payment_info: 'すべての大手クレジットカードがご利用できます。支援金額に応じてお支払手数料が差し引かれます。 手数料はすべての取引において支援金額の3％から６％となりますが、支援者の所在地や支援金額、お支払方法によって変動いたします。 また法律により付加価値税を差し引くことがあります。アーティストとラインアップは随時変更される可能性がありますのでご了承ください。 '
-      to_artists: 'Artists: ¥{{Math.ceil(payment.amount * 0.85)}}'
+      staff_artists_¥mathceilpayment: 'Staff & Artists: ¥{{Math.ceil(payment.amount * 0.85)}}'
       we_will_send_a_confirmation_wi: あなたのメールアドレスにチケットナンバーの確認メールを送信いたしました。
       where_your_money_will_go: Where your money will go
       will_be_refunded: 目標が達成されなかった場合、支援金は返済されます。
@@ -167,8 +185,6 @@ ja:
       "¥‎1000": "¥‎1000"
       "¥‎2000": "¥‎2000"
       "¥‎5000": "¥‎5000"
-      support_this_html: 'Support <b>%{fund}</b> and get a ticket:'
-      current_goals: These are our current goals. Please help us book these artists by supporting this event.
   hello: Hello world
   helpers:
     select:
@@ -177,20 +193,43 @@ ja:
       create: 登録する
       submit: 保存する
       update: 更新する
+      artist:
+        update: 
+      user:
+        create: 
+      booking:
+        create: 
+    label:
+      artist:
+        name: 
+        representation_agreed: 
+      user:
+        email: 
+        password: 
+      booking:
+        bookee_id: 
+        currency: 
+        bookee_confirmed_at: 
+        booker_confirmed_at: 
+        price: 
+        booker_id: 
+      session:
+        password: 
+        email: 
   ja: 日本語
   layouts:
     application:
       English: English
       Japanese: 日本語
-      amazing_sound: Amazing Sound
-      copyright_2016_new_sound_for_j: Copyright 2016 New Sound For Japan
-      get_in_touch: Get in touch.
-      get_tickets: Get tickets
-      meet_the_artists: Meet the artists
-      newsoundforjapan: Newsoundforjapan
-      pay_what_you_want: Pay what you want
-      support_charity: Support charity
-      want_to_do_something_similar_i: Want to do something similar in your country?
+      amazing_sound: 
+      copyright_2016_new_sound_for_j: 
+      get_in_touch: 
+      get_tickets: 
+      meet_the_artists: 
+      newsoundforjapan: 
+      pay_what_you_want: 
+      support_charity: 
+      want_to_do_something_similar_i: 
   number:
     currency:
       format:
@@ -252,3 +291,18 @@ ja:
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       short: "%y/%m/%d %H:%M"
     pm: 午後
+  users:
+    new:
+      thank_you: 
+      thank_you_2: 
+      hello_artist: 
+      representation_agreement: 
+      features: 
+      description: 
+      feature1: 
+      feature2: 
+      feature4: 
+      feature5: 
+      feature6: 
+      call_to_action: 
+      agree: 

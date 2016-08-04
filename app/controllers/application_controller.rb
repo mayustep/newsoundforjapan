@@ -3,17 +3,32 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :set_user
+  before_action :use_user
   before_action :set_locale
+  before_action :handle_secret
   around_action :set_tz
+  around_action :atomic_posts
 
 private
-  def set_user
+  def use_user    
     @current_user = User.find(session[:user_id]) if session[:user_id] rescue nil
+  end
+  
+  def handle_secret
+    if params[:secret]
+      crypt = ActiveSupport::MessageEncryptor.new(ENV['SECRET_KEY_BASE'])
+      json = JSON.parse(crypt.decrypt_and_verify(params[:secret]))
+      if json['bootstrap_artist_id']
+        bootstrap_artist = Artist.find(json['bootstrap_artist_id'])
+        if !bootstrap_artist.user
+          session[:bootstrap_artist_id] = json['bootstrap_artist_id']
+        end
+      end
+    end
   end
 
   def atomic_posts
-   if request.method == 'GET' || !current_user
+   if request.method == 'GET' || !@current_user
      yield
    else
      ActiveRecord::Base.transaction do
@@ -22,7 +37,7 @@ private
      end
    end
  end
-
+ 
  def atomic
    ActiveRecord::Base.transaction do
      User.where(:id => @current_user).lock(true).first
