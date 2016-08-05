@@ -11,14 +11,16 @@
     %meta{:property => "og:title", :content => "New Sound For Japan" }
     %meta{:property => "og:description", :content => "Enjoy Japan. Enjoy the Sound. We're bringing back the good shit." }
     %meta{:property => "og:image", :content => asset_url('logo.png') }
-  %body.application
+  %body.application{:class => "#{params[:controller]} #{params[:action]}"}
+    :coffee
+      window.locale = #{I18n.locale.to_json}
     = yield :before_content if content_for? :before_content
     %header
       .container-fluid
         .user_area
           - if @current_user
             = image_tag @current_user.image.thumb('200x200').url, :class => 'profile_image'
-            = @current_user.name
+            = link_to @current_user.name, @current_user
             = link_to "Log out", session_path, :method => :delete
           - else
             .signed_out

@@ -293,16 +293,19 @@ ja:
     pm: 午後
   users:
     new:
-      thank_you: 
-      thank_you_2: 
-      hello_artist: 
-      representation_agreement: 
-      features: 
-      description: 
-      feature1: 
-      feature2: 
-      feature4: 
-      feature5: 
-      feature6: 
-      call_to_action: 
+      thank_you: Thank You
+      thank_you_2: メールアドレスとパスワードを設定してください。
+      hello_artist: こんにちは%{name}さん。New Sound For Japanへようこそ！
+      representation_agreement: 同意
+      features: 以上が皆さんに提供しようと計画しているサービスの特徴です。
+      description: 私たちはあなたが日本の公式のエージェントとして参加してくれることを願っています。
+      feature1: 多言語でカスタマイズ可能なアーティストプロフィール
+      feature2: プロモーターのための自動化されたブッキングシステム
+      feature4: 'マネージメントのためのお金は必要ありません
+
+'
+      feature5: 適切なギャラ
+      feature6: クレジットカードでオンライン決済ができます
+      call_to_action: あなたが私たちとこの旅に出たいなら下のボタンを押してください。
       agree: 
+      feature3: Unbiased translations and mediation between languages

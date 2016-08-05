@@ -1,8 +1,34 @@
-.container-fluid
-  %h1
-    = @artist.name
-    - if @artist.user
-      %i.fa.fa-check.brand
-  = raw @artist.bio
-  = link_to 'Book now', new_booking_path(:bookee_id => @artist, :bookee_type => @artist.class.name), :class => 'button'
-  = link_to 'Edit', edit_artist_path(@artist), :class => 'button' if @artist.managed_by?(@current_user)
+.section.header
+  .container-fluid
+    .options
+      = link_to 'Edit', edit_artist_path(@artist), :class => 'button' if @artist.managed_by?(@current_user)
+    %h1
+      = @artist.name
+      - if @artist.user
+        %i.fa.fa-check.brand
+.section.availability
+  .container-fluid
+    - if @artist.bookable?
+      .options
+        = link_to 'Book now', new_booking_path(:booking => {:bookee_id => @artist, :bookee_type => @artist.class.name}), :class => 'button'
+    - else
+      %p= t '.unbookable'
+    %h2 Availability
+  
+      
+.section.bio  
+  .container-fluid
+    = sanitize @artist.bio, :tags => %w(iframe span p strong em img)
+.section.news
+  .container-fluid
+    %h1 Upcoming Events
+    - @artist.events.upcoming.each do |event|
+      = event.name
+    
+    %p Coming soon...
+  -# = link_to 'Add Event', '#', :class => 'button add_event'
+  
+-# .add_to_event.modal
+  -# %header Add to Event
+  
+  

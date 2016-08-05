@@ -1,0 +1,57 @@
+.section.header
+  .container-fluid
+    %h1 Edit Profile
+  
+.container-fluid
+  .row
+    .col-xs-6
+      = form_for(@user) do |f|
+        - if @user.errors.any?
+          #error_explanation
+            %h2
+              = pluralize(@user.errors.count, "error")
+              prohibited this user from being saved:
+            %ul
+              - @user.errors.full_messages.each do |message|
+                %li= message
+        .field
+          = f.label :name
+          = f.text_field :name
+        .field
+          = f.label :email
+          = f.text_field :email
+        .actions
+          = f.submit
+      = form_for(@user) do |f|
+        - if @user.errors.any?
+          #error_explanation
+            %h2
+              = pluralize(@user.errors.count, "error")
+              prohibited this user from being saved:
+            %ul
+              - @user.errors.full_messages.each do |message|
+                %li= message
+        .field
+          = f.label :password
+          = f.password_field :password
+        .actions
+          = f.submit t('.update_password')
+    .col-xs-6
+      %h2 Accounts
+      .identity
+        - if facebook = @user.identities.facebook.first
+          %i.fa.fa-facebook
+          = link_to "Facebook", "http://facebook.com/#{facebook.provider_id}"
+          (Connected)
+        - else
+          = link_to '/auth/facebook', :class => 'facebook' do
+            %i.fa.fa-facebook
+            Connect to Facebook
+      .identity
+        - if stripe = @user.identities.stripe.first
+          %i.fa.fa-cc-stripe
+          Stripe (Connected)
+        - else
+          = link_to '/auth/stripe_connect', :class => 'stripe' do
+            %i.fa.fa-cc-stripe
+            Connect to Stripe

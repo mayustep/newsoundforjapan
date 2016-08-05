@@ -1,17 +1,17 @@
 # == Schema Information
 #
-# Table name: events
+# Table name: artist_events
 #
 #  id         :integer          not null, primary key
-#  name       :string
+#  artist_id  :integer
+#  event_id   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  start_at   :datetime
 #
 
 require 'test_helper'
 
-class EventTest < ActiveSupport::TestCase
+class ArtistEventTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

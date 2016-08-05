@@ -34,11 +34,21 @@ class SessionsController < ApplicationController
   # POST /sessions
   # POST /sessions.json
   def create
+    if @current_user
+      if request.env['omniauth.auth']
+        User.find_or_create_from_auth_hash(request.env['omniauth.auth'], @current_user)
+        return redirect_to @current_user, :notice => "Succesfully connected to #{request.env['omniauth.auth']['provider']}."
+      else
+        return redirect_to :back, :notice => 'Already logged in.'
+      end
+    end
+    
     if request.env['omniauth.auth']
       @session = Session.new(:auth_hash => request.env['omniauth.auth'])
     else
       @session = Session.new(session_params)
     end
+  
     
     respond_to do |format|
       if @session.save

@@ -1,0 +1,6 @@
+
+.section.header
+  .container-fluid
+    .options
+      = link_to 'Edit', edit_user_path(@user), :class => 'button'
+    %h1= @user.name

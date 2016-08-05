@@ -12,7 +12,17 @@
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  bookee_type         :string
+#  event_id            :integer
 #
 
 class Booking < ApplicationRecord
+  belongs_to :booker, :class_name => 'User'
+  belongs_to :bookee, :polymorphic => true
+  belongs_to :event
+  
+  validates :booker, :presence => true
+  validates :bookee, :presence => true
+  validates :price, :numericality => {:greater_than_or_equal_to => 50} # minimum JPY required by stripe
+  
+  accepts_nested_attributes_for :event
 end

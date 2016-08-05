@@ -49,6 +49,7 @@ private
    if params[:locale]
      I18n.locale = cookies.permanent[:locale] = params[:locale]
      @current_user.update(:locale => params[:locale]) if @current_user
+     return redirect_to :back
   #  elsif @current_user && @current_user.locale
   #    I18n.locale = @current_user.locale
    elsif cookies[:locale]

@@ -1,36 +1,44 @@
-.artist {
-  height: 300px;
-  padding: 5px;
-  .inner {
-    background: #282c34;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-    .image {
-      height: 100%;
-      width: 100%;
-      background-size: cover;
-      background-position: center;
-    }
-    .info {
-      font-size: 30px;
-      position: absolute;
-      bottom: -120px;
-      transition: all 300ms ease;
-    }
-    &:hover .info {
-      
-       bottom: 0;
-     
+body.artists {
+  &.show {
+    h1:not(:first-child) {
+      margin-top: 40px;
     }
   }
   
-  .artist_link {
-    top: 0;
-    left: 0;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    display: block;
-  }
+  .artist {
+    height: 300px;
+    padding: 5px;
+    .inner {
+      background: #282c34;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      .image {
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+      }
+      .info {
+        font-size: 30px;
+        position: absolute;
+        bottom: -120px;
+        transition: all 300ms ease;
+      }
+      &:hover .info {
+        
+         bottom: 0;
+       
+      }
+    }
+    
+    .artist_link {
+      top: 0;
+      left: 0;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      display: block;
+    }
+  }  
 }

@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803174822) do
+ActiveRecord::Schema.define(version: 20160805082308) do
+
+  create_table "artist_events", force: :cascade do |t|
+    t.integer  "artist_id"
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "artists", force: :cascade do |t|
     t.string   "name"
@@ -37,6 +44,7 @@ ActiveRecord::Schema.define(version: 20160803174822) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "bookee_type"
+    t.integer  "event_id"
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -58,6 +66,7 @@ ActiveRecord::Schema.define(version: 20160803174822) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "start_at"
   end
 
   create_table "funds", force: :cascade do |t|

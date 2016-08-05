@@ -3,9 +3,9 @@ class BookingsController < ApplicationController
 
   # GET /bookings
   # GET /bookings.json
-  def index
-    @bookings = Booking.all
-  end
+  # def index
+  #   @bookings = Booking.all
+  # end
 
   # GET /bookings/1
   # GET /bookings/1.json
@@ -14,7 +14,8 @@ class BookingsController < ApplicationController
 
   # GET /bookings/new
   def new
-    @booking = Booking.new
+    @booking = Booking.new(booking_params)
+    @booking.event = Event.new
   end
 
   # GET /bookings/1/edit
@@ -25,7 +26,8 @@ class BookingsController < ApplicationController
   # POST /bookings.json
   def create
     @booking = Booking.new(booking_params)
-
+    @booking.booker = @current_user
+    
     respond_to do |format|
       if @booking.save
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
@@ -69,6 +71,6 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params.require(:booking).permit(:booker_id, :bookee_id, :price, :currency, :bookee_confirmed_at, :booker_confirmed_at)
+      params.require(:booking).permit(:booker_id, :bookee_id, :bookee_type, :price, :currency, :bookee_confirmed_at, :booker_confirmed_at, :event_attributes => [:start_at])
     end
 end

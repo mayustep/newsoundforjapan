@@ -13,5 +13,8 @@
 #
 
 class Identity < ApplicationRecord
+  scope :stripe, -> { where :provider => 'stripe_connect' }
+  scope :facebook, -> { where :provider => 'facebook' }
+  
   belongs_to :user
 end

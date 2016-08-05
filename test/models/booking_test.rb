@@ -12,6 +12,7 @@
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  bookee_type         :string
+#  event_id            :integer
 #
 
 require 'test_helper'

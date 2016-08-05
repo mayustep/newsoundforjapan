@@ -22,7 +22,8 @@ class Artist < ApplicationRecord
 
   has_many :user_relations, :as => 'relative'
   has_many :users, :through => :user_relations
-
+  has_many :artist_events
+  has_many :events, :through => :artist_events
   accepts_translations_for :bio
   dragonfly_accessor :image
 
@@ -48,7 +49,11 @@ class Artist < ApplicationRecord
   end
   
   def managed_by?(user)
-    UserRelation.where(:relation => 'is', :user => user).any?
+    user.present? && UserRelation.where(:relation => 'is', :user => user).any?
+  end
+
+  def bookable?
+    self.user && self.user.identities.stripe.any?
   end
   
   def calendars

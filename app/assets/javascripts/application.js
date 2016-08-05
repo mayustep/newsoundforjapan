@@ -9,15 +9,21 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
+// derp //= requirse redactor/de
+
+
+
 //
 //= require jquery
 //= require jquery_ujs
+//= require pickadate/picker
+//= require pickadate/picker.date
 //= require turbolinks
 //= require vue
 //= require redactor
 //= require redactor/ja
-//= require redactor/de
 //= require redactor/imagemanager
 //= require redactor/filemanager
 //= require redactor/video
 //= require_tree .
+//= require select2

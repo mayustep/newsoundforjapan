@@ -1,0 +1,20 @@
+@import 'globals';
+
+.section {
+  position: relative;
+  clear: both;
+  .options {
+    float: right;
+  }
+}
+
+.section.header {
+  border-bottom: 1px solid darken($bodyColor, 10);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.section.bio {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

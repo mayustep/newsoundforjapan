@@ -1,18 +1,20 @@
 # == Schema Information
 #
-# Table name: events
+# Table name: artist_events
 #
 #  id         :integer          not null, primary key
-#  name       :string
+#  artist_id  :integer
+#  event_id   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  start_at   :datetime
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  artist_id: 1
+  event_id: 1
 
 two:
-  name: MyString
+  artist_id: 1
+  event_id: 1

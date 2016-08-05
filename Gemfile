@@ -6,7 +6,9 @@ ruby '2.3.1'
 gem 'rails', '>= 5.0.0.beta4', '< 5.1'
 gem 'rails_12factor'
 # Use sqlite3 as the database for Active Record
-gem 'jquery-ui-rails'
+# gem 'jquery-ui-rails'
+gem "select2-rails"
+gem 'pickadate-rails'
 
 gem 'acts_as_list'
 gem 'rbjs'
@@ -15,6 +17,7 @@ gem "font-awesome-rails"
 
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-stripe-connect'
 gem 'google-api-client', '~> 0.9', require: 'google/apis/calendar_v3'
 gem 'localeapp'
 

@@ -1,0 +1,27 @@
+.section.header
+  .container-fluid
+    %h1 Book #{booking.bookee.name}
+.section.form
+  .container-fluid
+    = form_for(booking) do |f|
+      = f.hidden_field :bookee_id
+      = f.hidden_field :bookee_type
+      = f.hidden_field :currency, :value => 'JPY'
+      - if booking.errors.any?
+        #error_explanation
+          %h2
+            = pluralize(booking.errors.count, "error")
+            prohibited this booking from being saved:
+          %ul
+            - booking.errors.full_messages.each do |message|
+              %li= message
+      .field
+        = f.label :price
+        = f.text_field :price
+        JPY
+      = f.fields_for :event do |ef|
+        .field
+          = ef.label :start_at
+          = ef.text_field :start_at, :class => 'datepicker'
+      .actions
+        = f.submit
