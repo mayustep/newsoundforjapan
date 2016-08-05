@@ -23,9 +23,10 @@
   .container-fluid
     %h1 Upcoming Events
     - @artist.events.upcoming.each do |event|
-      = event.name
+      %p= link_to event.name, event
+    - if @artist.events.upcoming.empty?
+      %p Nothing happening
     
-    %p Coming soon...
   -# = link_to 'Add Event', '#', :class => 'button add_event'
   
 -# .add_to_event.modal

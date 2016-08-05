@@ -12,4 +12,6 @@
 class ArtistEvent < ApplicationRecord
   belongs_to :artist
   belongs_to :event
+  
+  validates :artist, :uniqueness => {:scope => :event}
 end

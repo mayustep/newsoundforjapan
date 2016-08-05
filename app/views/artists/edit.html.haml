@@ -1,5 +1,8 @@
+.section.header
+  .container-fluid
+    %h1 Edit Artist
+    
 .container-fluid
-  %h1 Editing Artist
   - if @artist.user
     This page is owned by #{@artist.user.name}
   - else

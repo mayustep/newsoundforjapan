@@ -30,6 +30,7 @@ class BookingsController < ApplicationController
     
     respond_to do |format|
       if @booking.save
+        # TODO: send email to bookee
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else
@@ -43,6 +44,12 @@ class BookingsController < ApplicationController
   # PATCH/PUT /bookings/1.json
   def update
     respond_to do |format|
+      if booking_params[:accept] && @booking.bookee.managed_by?(@current_user) && !@booking.bookee_confirmed_at
+        @booking.event.artists.push(@booking.bookee) if @booking.bookee.is_a?(Artist)
+        @booking.update :bookee_confirmed_at => Time.now
+        # TODO: send email to booker
+        return redirect_to :back, :notice => 'Offer accepted.'
+      end
       if @booking.update(booking_params)
         format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
         format.json { render :show, status: :ok, location: @booking }
@@ -71,6 +78,6 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params.require(:booking).permit(:booker_id, :bookee_id, :bookee_type, :price, :currency, :bookee_confirmed_at, :booker_confirmed_at, :event_attributes => [:start_at])
+      params.require(:booking).permit(:booker_id, :bookee_id, :bookee_type, :price, :currency, :bookee_confirmed_at, :booker_confirmed_at, :accept, :event_attributes => [:start_at])
     end
 end

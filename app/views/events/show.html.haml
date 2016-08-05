@@ -1,0 +1,15 @@
+.section.header
+  .container-fluid
+    .options
+      = link_to 'Edit', edit_event_path(@event), :class => 'button'
+    %h1= @event.name || 'Event'
+    
+.section
+  .container-fluid
+    %p= @event.start_at
+    
+.section
+  .container-fluid
+    %h2 Artists
+    - @event.artists.each do |artist|
+      = link_to artist.name, artist

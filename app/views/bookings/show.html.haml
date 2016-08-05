@@ -4,8 +4,12 @@
     
 .section.details
   .container-fluid
+    %p= link_to 'Show Event', @booking.event
     %p Date: #{@booking.event.start_at}
     %p Guarantee: #{@booking.price} #{@booking.currency}
     - if @booking.bookee.managed_by?(@current_user)
-      = link_to 'Accept Offer', booking_path(@booking, :booking => {:accept => true}), :method => 'PUT', :class => 'button'
+      - if @booking.bookee_confirmed_at
+        %p Offer has been accepted
+      - else
+        = link_to 'Accept Offer', booking_path(@booking, :booking => {:accept => true}), :method => 'PUT', :class => 'button'
         

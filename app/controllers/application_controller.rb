@@ -21,6 +21,7 @@ private
       if json['bootstrap_artist_id']
         bootstrap_artist = Artist.find(json['bootstrap_artist_id'])
         if !bootstrap_artist.user
+          session[:agreed] = false
           session[:bootstrap_artist_id] = json['bootstrap_artist_id']
         end
       end

@@ -10,6 +10,10 @@
 #
 
 class Event < ApplicationRecord
+  
+  has_many :artist_events
+  has_many :artists, :through => :artist_events
+  
   validate :start_at_cant_be_changed_into_past
   
   def start_at_cant_be_changed_into_past

@@ -25,7 +25,7 @@
         %p
           = f.select :google_calendar_id, artist.calendars.items.collect { |calendar| [calendar.summary, calendar.id] }
       %p= link_to 'Unlink calendar from artist', artist_path(artist, :artist => {:google_calendar_token => nil}), :method => 'PUT', :data => {:confirm => 'Remove google calendar access?'}
-    - else
+    - elsif artist.persisted?
       = link_to 'Link to calendar', google_calendar_auth_path(artist)
   .actions
     = f.submit

@@ -1,10 +1,11 @@
-.content_header
+.section.header
   .container-fluid
-    .row
-      .col-sm-12
-        %h1 Artists
-        .create
-          = link_to "Add Artist", new_artist_path
+    - if @current_user
+      .options
+        = link_to "Add Artist", new_artist_path, :class => 'button'
+    %h1 Artists
+        
+          
 
 .container-fluid
   .row
