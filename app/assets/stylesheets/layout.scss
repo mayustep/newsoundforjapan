@@ -9,11 +9,13 @@ body > header {
   z-index: 1;
   padding-top: 0px;
   padding-bottom: 0px;
+  padding-left: 2rem;
   height: $headerHeight;
   width: 100%;
   background-color: #282c34;
   position: fixed;
   border-bottom: 1px solid #242427;
+  
   .features {
     position: absolute;
     top: 100px;
@@ -27,9 +29,10 @@ body > header {
   .user_area {
     float: right;
     height: $headerHeight;
-    
+    background-color: darken(#282c34, 5);
     border-left: 1px solid #242427;
     padding-top: 12px;
+    padding-right: 2rem;
     vertical-align: middle;
     .signed_out {
       padding-left: 20px;
@@ -40,6 +43,7 @@ body > header {
       height: 50px;
       border-radius: 50px;
       vertical-align: middle;
+      margin-left: 20px;
     }
     .sign_up {
       background: $brandColor;
@@ -107,6 +111,17 @@ body > nav {
     height: 50px;
     background-color: rgba(0, 0, 0, 0.05);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    .badge {
+      float: right;
+      background-color: $brandColor;
+      padding: 4px 4px;
+      height: 28px;
+      margin-top: 11px;
+      vertical-align: middle;
+      line-height: 20px;
+      font-size: 20px;
+      border-radius: 10px;
+    }
   }
   li.item.on, li.item:hover {
     background-color: rgba(0, 0, 0, 0.1);

@@ -16,27 +16,27 @@
       window.locale = #{I18n.locale.to_json}
     = yield :before_content if content_for? :before_content
     %header
-      .container-fluid
-        .user_area
-          - if @current_user
-            = image_tag @current_user.image.thumb('200x200').url, :class => 'profile_image'
-            = link_to @current_user.name, @current_user
-            = link_to "Log out", session_path, :method => :delete
-          - else
-            .signed_out
-              = link_to "Log in", new_session_path, :class => 'email'
-              = link_to '/auth/facebook', :class => 'facebook' do
-                %i.fa.fa-facebook
-                Log in
-              = link_to new_user_path, :class => 'sign_up' do
-                %i.fa.fa-envelope
-                Sign up
-        .language_select
-          = link_to t('en'), '?locale=en', :class => ('active' if I18n.locale == :en)
-          = link_to t('ja'), '?locale=ja', :class => ('active' if I18n.locale == :ja)
-        .small_logo
-          = link_to image_tag('newsoundforjapantext2.png'), root_url
-          Alpha
+
+      .user_area
+        - if @current_user
+          = image_tag @current_user.image.thumb('200x200').url, :class => 'profile_image'
+          = link_to @current_user.name, @current_user
+          = link_to "Log out", session_path, :method => :delete
+        - else
+          .signed_out
+            = link_to "Log in", new_session_path, :class => 'email'
+            = link_to '/auth/facebook', :class => 'facebook' do
+              %i.fa.fa-facebook
+              Log in
+            = link_to new_user_path, :class => 'sign_up' do
+              %i.fa.fa-envelope
+              Sign up
+      .language_select
+        = link_to t('en'), '?locale=en', :class => ('active' if I18n.locale == :en)
+        = link_to t('ja'), '?locale=ja', :class => ('active' if I18n.locale == :ja)
+      .small_logo
+        = link_to image_tag('newsoundforjapantext2.png'), root_url
+        Alpha
     %nav
       %ul
         
@@ -58,6 +58,8 @@
           - @current_user.user_relations.each do |relation|
             = link_to relation.relative do
               %li.item
+                - if relation.relative.events.upcoming.count > 0
+                  .badge= relation.relative.events.upcoming.count
                 = relation.relative.name
     %main
       .content

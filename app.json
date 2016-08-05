@@ -1,0 +1,15 @@
+{
+  "name": "NewSoundForJapan",
+  "description": "All Artists, Venues and Events in and around Japan",
+  "keywords": [
+    "music",
+    "events",
+    "sound",
+    "japan"
+  ],
+  "scripts": {
+    "dokku": {
+      "postdeploy": "bundle exec rake db:migrate"
+    }
+  }
+}

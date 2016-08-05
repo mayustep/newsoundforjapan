@@ -1,14 +1,18 @@
 - if @bootstrap_artist
   - if !@bootstrap_artist.user
     - if session[:agreed]
+      .section.header
+        .container-fluid
+          %h1= t '.thank_you'
       .container-fluid
-        %h1= t '.thank_you'
         %p= t '.thank_you_2'
         = render 'form', user: @user
     - else
-      .container-fluid.bootstrap_artist
-        = image_tag 'newsoundforjapantext2.png'
-        %h1= t '.representation_agreement'
+      .section.header
+        .container-fluid
+          %h1= t '.representation_agreement'
+      .container-fluid
+        = image_tag 'newsoundforjapantext2.png', :width => 600
         
         .intro_section
           %p
