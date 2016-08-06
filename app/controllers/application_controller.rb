@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_action :reload_localization
   before_action :use_user
   before_action :set_locale
   before_action :handle_secret
@@ -10,6 +11,11 @@ class ApplicationController < ActionController::Base
   around_action :atomic_posts
 
 private
+  def reload_localization
+    # currently on every request... whatever
+    I18n.backend.load_translations
+  end
+
   def use_user    
     @current_user = User.find(session[:user_id]) if session[:user_id] rescue nil
   end
