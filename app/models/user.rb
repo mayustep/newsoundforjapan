@@ -35,6 +35,10 @@ class User < ApplicationRecord
     user.save
     user
   end
+
+  def display_name
+    self.name || self.email.split('@')[0]
+  end
   
   def can_accept_payment?
     self.identities.stripe.any?

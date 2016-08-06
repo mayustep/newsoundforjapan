@@ -36,8 +36,11 @@ class SessionsController < ApplicationController
   def create
     if @current_user
       if request.env['omniauth.auth']
-        User.find_or_create_from_auth_hash(request.env['omniauth.auth'], @current_user)
-        return redirect_to @current_user, :notice => "Succesfully connected to #{request.env['omniauth.auth']['provider']}."
+        user = User.find_or_create_from_auth_hash(request.env['omniauth.auth'], @current_user)
+        if user != @current_user
+          return redirect_to @current_user, :alert => "This #{request.env['omniauth.auth']['provider'].humanize} account is used by a different user."
+        end
+        return redirect_to @current_user, :notice => "Succesfully connected to #{request.env['omniauth.auth']['provider'].humanize}."
       else
         return redirect_to :back, :notice => 'Already logged in.'
       end
@@ -46,7 +49,7 @@ class SessionsController < ApplicationController
     if request.env['omniauth.auth']
       @session = Session.new(:auth_hash => request.env['omniauth.auth'])
     else
-      @session = Session.new(session_params)
+      @session ||= Session.new(session_params)
     end
   
     

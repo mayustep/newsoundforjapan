@@ -1,43 +1,53 @@
 ja:
+  This artist can not be booked: 
   activerecord:
+    attributes:
+      artist:
+        name: 
+        representation_agreed: 
+      artist_event:
+        artist: 
+      booking:
+        bookee_confirmed_at: 
+        bookee_id: 
+        booker: 
+        booker_confirmed_at: 
+        booker_id: 
+        currency: 
+        price: 
+      booking/event:
+        start_at: 
+      event:
+        name: 
+        start_at: 
+      session:
+        email: 
+        password: 
+      user:
+        email: 
+        name: 
+        password: 
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:
           has_many: "%{record}が存在しているので削除できません"
           has_one: "%{record}が存在しているので削除できません"
-    attributes:
-      artist:
-        representation_agreed: 
-      user:
-        password: 
-        name: 
-      booking:
-        bookee_id: 
-        price: 
-        currency: 
-        booker_id: 
-        bookee_confirmed_at: 
-        booker: 
-      session:
-        email: 
-        password: 
-      artist_event:
-        artist: 
-      booking/event:
-        start_at: 
-      event:
-        name: 
-        start_at: 
     models:
       artist: 
-      user: 
-      session: 
       artist_event: 
+      booking: 
       event: 
+      session: 
+      user: 
   application_mailer:
     payment_confirmation:
       thank_you: "%{fund} confirmation"
+  artists:
+    index:
+      artists_represented_by_us: 
+    show:
+      unbookable: 
   date:
     abbr_day_names:
     - 日
@@ -136,6 +146,7 @@ ja:
       year: 年
   en: English
   errors:
+    connection_refused: 
     format: "%{attribute}%{message}"
     messages:
       accepted: を受諾してください
@@ -167,7 +178,6 @@ ja:
       header:
         one: "%{model}にエラーが発生しました"
         other: "%{model}に%{count}個のエラーが発生しました"
-    connection_refused: 
   funds:
     edit:
       back: 戻る
@@ -199,56 +209,60 @@ ja:
       "¥‎5000": "¥‎5000"
   hello: Hello world
   helpers:
-    select:
-      prompt: 選択してください
-    submit:
-      create: 登録する
-      submit: 保存する
-      update: 更新する
-      artist:
-        update: 
-        create: 
-      user:
-        create: 
-        update: 
-      booking:
-        create: 
-        update: 
-      event:
-        update: 
     label:
       artist:
         name: 
         representation_agreed: 
-      user:
-        email: 
-        password: 
-        name: 
       booking:
-        bookee_id: 
-        currency: 
         bookee_confirmed_at: 
+        bookee_id: 
         booker_confirmed_at: 
-        price: 
         booker_id: 
-      session:
-        password: 
-        email: 
+        currency: 
+        price: 
       booking[event_attributes]:
         start_at: 
       event:
         name: 
+      session:
+        email: 
+        password: 
+      user:
+        email: 
+        name: 
+        password: 
+    select:
+      prompt: 選択してください
+    submit:
+      artist:
+        create: 
+        update: 
+      booking:
+        create: 
+        update: 
+      create: 登録する
+      event:
+        update: 
+      session:
+        create: 
+      submit: 保存する
+      update: 更新する
+      user:
+        create: 
+        update: 
   ja: 日本語
   layouts:
     application:
       English: English
       Japanese: 日本語
       amazing_sound: 
+      connect_stripe: 支払いを受け取るためにStripeと連携してください。
       copyright_2016_new_sound_for_j: 
       get_in_touch: 
       get_tickets: 
       meet_the_artists: 
       newsoundforjapan: 
+      no_payments: 
       pay_what_you_want: 
       support_charity: 
       want_to_do_something_similar_i: 
@@ -298,6 +312,17 @@ ja:
     precision:
       format:
         delimiter: 
+  pages:
+    index:
+      header: 私たちはDJを代表します
+      join: プラットフォームに参加して日本でのDJ活動の支払いを受けましょう。
+      join_with_email: 
+      join_with_facebook: 
+      point1: 出演前の支払い
+      point2: 管理費は業界標準の１５パーセント
+      point3: クレジットカードが利用できます
+      point4: 嘘はつきません
+      tagline: New Sound For Japanは安全かつ公正にアーティストとの仲介を行います。
   sessions:
     form:
       prohibited_this_session_from_b: 
@@ -314,37 +339,20 @@ ja:
       short: "%y/%m/%d %H:%M"
     pm: 午後
   users:
+    edit:
+      update_password: Update Password
     new:
-      thank_you: Thank You
-      thank_you_2: メールアドレスとパスワードを設定してください。
-      hello_artist: こんにちは%{name}さん。New Sound For Japanへようこそ！
-      representation_agreement: 同意
-      features: 以上が皆さんに提供しようと計画しているサービスの特徴です。
+      agree: 私%{name}は、New Sound For Japan の一員となることに同意します。
+      call_to_action: あなたが私たちとこの旅に出たいなら下のボタンを押してください。
       description: 私たちはあなたが日本の公式のエージェントとして参加してくれることを願っています。
       feature1: 多言語でカスタマイズ可能なアーティストプロフィール
       feature2: プロモーターのための自動化されたブッキングシステム
+      feature3: 多言語間での公正な翻訳と取引を提供
       feature4: 管理費は業界標準の１５パーセントほど
       feature5: 適切なギャラ
       feature6: クレジットカードでオンライン決済ができます
-      call_to_action: あなたが私たちとこの旅に出たいなら下のボタンを押してください。
-      agree: 私%{name}は、New Sound For Japan の一員となることに同意します。
-      feature3: 多言語間での公正な翻訳と取引を提供
-    edit:
-      update_password: Update Password
-  artists:
-    show:
-      unbookable: 
-    index:
-      artists_represented_by_us: 
-  This artist can not be booked: 
-  pages:
-    index:
-      header: 私たちはDJを代表します。
-      join: このプラットフォームに参加して日本でのDJ活動の支払いを受けましょう。
-      join_with_email: 
-      join_with_facebook: 
-      point1: 出演前に支払い
-      point2: 費用は管理費の１５パーセント
-      point3: クレジットカードが利用できます
-      point4: お約束します
-      tagline: 
+      features: 以上が皆さんに提供しようと計画しているサービスの特徴です。
+      hello_artist: こんにちは%{name}さん。New Sound For Japanへようこそ！
+      representation_agreement: 同意
+      thank_you: Thank You
+      thank_you_2: メールアドレスとパスワードを設定してください。

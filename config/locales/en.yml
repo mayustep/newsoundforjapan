@@ -1,47 +1,53 @@
 en:
+  This artist can not be booked: 
   activerecord:
+    attributes:
+      artist:
+        name: Name
+        representation_agreed: Representation agreed
+      artist_event:
+        artist: Artist
+      booking:
+        bookee_confirmed_at: Bookee confirmed at
+        bookee_id: Bookee
+        booker: Booker
+        booker_confirmed_at: Booker confirmed at
+        booker_id: Booker
+        currency: Currency
+        price: Price
+      booking/event:
+        start_at: Event start at
+      event:
+        name: Name
+        start_at: Start at
+      session:
+        email: Email
+        password: Password
+      user:
+        email: Email
+        name: Name
+        password: Password
     errors:
       messages:
         record_invalid: 'Validation failed: %{errors}'
         restrict_dependent_destroy:
           has_many: Cannot delete record because dependent %{record} exist
           has_one: Cannot delete record because a dependent %{record} exists
-    attributes:
-      artist:
-        representation_agreed: Representation agreed
-        name: Name
-      user:
-        email: Email
-        password: Password
-        name: Name
-      booking:
-        bookee_id: Bookee
-        price: Price
-        currency: Currency
-        booker_confirmed_at: Booker confirmed at
-        booker_id: Booker
-        bookee_confirmed_at: Bookee confirmed at
-        booker: Booker
-      session:
-        email: Email
-        password: Password
-      artist_event:
-        artist: Artist
-      booking/event:
-        start_at: Event start at
-      event:
-        name: Name
-        start_at: Start at
     models:
       artist: Artist
-      user: User
-      booking: Booking
-      session: Session
       artist_event: Artist event
+      booking: Booking
       event: Event
+      session: Session
+      user: User
   application_mailer:
     payment_confirmation:
       thank_you: "%{fund} confirmation"
+  artists:
+    index:
+      artists_represented_by_us: 
+    show:
+      unbookable: 
   date:
     abbr_day_names:
     - Sun
@@ -140,6 +146,7 @@ en:
       year: Year
   en: English
   errors:
+    connection_refused: 
     format: "%{attribute} %{message}"
     messages:
       accepted: must be accepted
@@ -177,7 +184,6 @@ en:
       header:
         one: 1 error prohibited this %{model} from being saved
         other: "%{count} errors prohibited this %{model} from being saved"
-    connection_refused: 
   funds:
     edit:
       back: Back
@@ -209,58 +215,60 @@ en:
       "¥‎5000": "¥5000"
   hello: Hello world
   helpers:
-    select:
-      prompt: Please select
-    submit:
-      create: Create %{model}
-      submit: Save %{model}
-      update: Update %{model}
-      artist:
-        update: Update Artist
-        create: Create Artist
-      user:
-        create: Create User
-        update: Update User
-      booking:
-        create: Create Booking
-        update: Update Booking
-      session:
-        create: Create Session
-      event:
-        update: Update Event
     label:
       artist:
         name: 
         representation_agreed: 
-      user:
-        email: 
-        password: 
-        name: 
       booking:
-        bookee_id: 
-        currency: 
         bookee_confirmed_at: 
+        bookee_id: 
         booker_confirmed_at: 
-        price: 
         booker_id: 
-      session:
-        password: 
-        email: 
+        currency: 
+        price: 
       booking[event_attributes]:
         start_at: 
       event:
         name: 
+      session:
+        email: 
+        password: 
+      user:
+        email: 
+        name: 
+        password: 
+    select:
+      prompt: Please select
+    submit:
+      artist:
+        create: Create Artist
+        update: Update Artist
+      booking:
+        create: Create Booking
+        update: Update Booking
+      create: Create %{model}
+      event:
+        update: Update Event
+      session:
+        create: Create Session
+      submit: Save %{model}
+      update: Update %{model}
+      user:
+        create: Create User
+        update: Update User
   ja: 日本語
   layouts:
     application:
       English: English
       Japanese: 日本語
       amazing_sound: Amazing Sound
+      connect_stripe: Please connect your account to Stripe to receive payments.
       copyright_2016_new_sound_for_j: Copyright 2016 New Sound For Japan
       get_in_touch: Get in touch.
       get_tickets: Get tickets
       meet_the_artists: Meet the artists
       newsoundforjapan: Newsoundforjapan
+      no_payments: 
       pay_what_you_want: Pay what you want
       support_charity: Support charity
       want_to_do_something_similar_i: Want to do something similar in your country?
@@ -312,6 +320,17 @@ en:
     precision:
       format:
         delimiter: 
+  pages:
+    index:
+      header: We represent DJs
+      join: Join the platform and get paid for DJing in Japan.
+      join_with_email: Join with Email
+      join_with_facebook: Join with Facebook
+      point1: Payment before the gig
+      point2: 15% Management Fee
+      point3: Credit Cards accepted
+      point4: No Bullshit
+      tagline: New Sound For Japan is an artist agency that is built on transparency and fairness.
   sessions:
     form:
       prohibited_this_session_from_b: 'prohibited this session from being saved:'
@@ -328,37 +347,20 @@ en:
       short: "%d %b %H:%M"
     pm: pm
   users:
+    edit:
+      update_password: Update Password
     new:
-      thank_you: Thank You
-      thank_you_2: " To start using the platform, please confirm your email address and choose a password."
-      hello_artist: Hello %{name}. Welcome to New Sound For Japan!
-      representation_agreement: Agreement
-      features: It's still early, but here is a list of features we are planning to provide
+      agree: I, %{name}, agree to be listed and represented by New Sound For Japan
+      call_to_action: If you like to join us on this journey, click the button below
       description: We would like to list you in our official roster and represent you as official agent in Japan.
       feature1: Personal, customizable and multilingual artist profile
       feature2: Automated booking system for promoters
+      feature3: Unbiased translations and mediation between languages
       feature4: An industry-standard 15% management fee.
       feature5: Competetive rates and guarantees
       feature6: Accept online payments with credit cards
-      feature3: Unbiased translations and mediation between languages
-      call_to_action: If you like to join us on this journey, click the button below
-      agree: I, %{name}, agree to be listed and represented by New Sound For Japan
-    edit:
-      update_password: Update Password
-  artists:
-    show:
-      unbookable: 
-    index:
-      artists_represented_by_us: 
-  This artist can not be booked: 
-  pages:
-    index:
-      header: We represent DJs
-      join: Join the platform and get paid for DJing in Japan.
-      join_with_email: 
-      join_with_facebook: 
-      point1: Payment before the gig
-      point2: 15% management fee
-      point3: Credit Cards accepted
-      point4: No Bullshit
-      tagline: New Sound For Japan is an artist agency that is built on transparency and fairness.
+      features: It's still early, but here is a list of features we are planning to provide
+      hello_artist: Hello %{name}. Welcome to New Sound For Japan!
+      representation_agreement: Agreement
+      thank_you: Thank You
+      thank_you_2: " To start using the platform, please confirm your email address and choose a password."

@@ -163,6 +163,14 @@ body > main {
     padding-bottom: 180px;
     position: relative;
   }
+  .action_required {
+    background-color: darken(#282c34, 5);
+    padding: 20px;
+    img {
+      vertical-align: middle;
+      height: 32px;
+    }
+  }
 }
 
 

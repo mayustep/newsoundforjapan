@@ -6,6 +6,8 @@ Localeapp.configure do |config|
   config.poll_interval = 60
 end
 
-if Rails.env.production?
-  Localeapp::CLI::Pull.new.execute
+if defined?(Rails)
+  if Rails.env.production?
+    Localeapp::CLI::Pull.new.execute
+  end
 end

@@ -33,29 +33,34 @@
   h1 {
     display: inline-block;
     font-size: 62px;
-    padding: 40px 80px;
+    padding: 40px 0px 40px;
+    width: 720px;
     text-transform: uppercase;
     background-color: rgba(0,0,0,0.5);
     border-top: 5px solid $brandColor;
   }
   .tagline {
     padding: 40px 80px;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.7);
     font-size: 26px;
-    margin-top: 100px;
+    margin-top: 0px;
   }
   .points {
-    padding: 40px 80px;
+    padding: 30px 80px;
     background-color: rgba(0,0,0,0.5);
-    width: 600px;
+    width: 720px;
     display: inline-block;
     text-align: left;
-    
+    font-size: 26px;
+    line-height: 45px;
+    i {
+      color: $brandColor;
+    }
   }
   .join {
     font-size: 26px;
     margin-top: 50px;
-    padding: 80px 80px;
+    padding: 60px 80px;
     background-color: rgba(0,0,0,0.9);
     border-bottom: 5px solid $brandColor;
     p {
