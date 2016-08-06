@@ -11,19 +11,30 @@ ja:
         representation_agreed: 
       user:
         password: 
+        name: 
       booking:
         bookee_id: 
         price: 
         currency: 
         booker_id: 
         bookee_confirmed_at: 
+        booker: 
       session:
         email: 
         password: 
+      artist_event:
+        artist: 
+      booking/event:
+        start_at: 
+      event:
+        name: 
+        start_at: 
     models:
       artist: 
       user: 
       session: 
+      artist_event: 
+      event: 
   application_mailer:
     payment_confirmation:
       thank_you: "%{fund} confirmation"
@@ -156,6 +167,7 @@ ja:
       header:
         one: "%{model}にエラーが発生しました"
         other: "%{model}に%{count}個のエラーが発生しました"
+    connection_refused: 
   funds:
     edit:
       back: 戻る
@@ -195,10 +207,15 @@ ja:
       update: 更新する
       artist:
         update: 
+        create: 
       user:
         create: 
+        update: 
       booking:
         create: 
+        update: 
+      event:
+        update: 
     label:
       artist:
         name: 
@@ -206,6 +223,7 @@ ja:
       user:
         email: 
         password: 
+        name: 
       booking:
         bookee_id: 
         currency: 
@@ -216,6 +234,10 @@ ja:
       session:
         password: 
         email: 
+      booking[event_attributes]:
+        start_at: 
+      event:
+        name: 
   ja: 日本語
   layouts:
     application:
@@ -301,11 +323,28 @@ ja:
       description: 私たちはあなたが日本の公式のエージェントとして参加してくれることを願っています。
       feature1: 多言語でカスタマイズ可能なアーティストプロフィール
       feature2: プロモーターのための自動化されたブッキングシステム
-      feature4: 'マネージメントのためのお金は必要ありません
-
-'
+      feature4: 管理費は業界標準の１５パーセントほど
       feature5: 適切なギャラ
       feature6: クレジットカードでオンライン決済ができます
       call_to_action: あなたが私たちとこの旅に出たいなら下のボタンを押してください。
-      agree: 
-      feature3: Unbiased translations and mediation between languages
+      agree: 私%{name}は、New Sound For Japan の一員となることに同意します。
+      feature3: 多言語間での公正な翻訳と取引を提供
+    edit:
+      update_password: Update Password
+  artists:
+    show:
+      unbookable: 
+    index:
+      artists_represented_by_us: 
+  This artist can not be booked: 
+  pages:
+    index:
+      header: 私たちはDJを代表します。
+      join: このプラットフォームに参加して日本のDJに支払いができます。
+      join_with_email: 
+      join_with_facebook: 
+      point1: 出演前に支払い
+      point2: 費用は管理費の１５パーセント
+      point3: クレジットカードが利用できます
+      point4: お約束します
+      tagline: 

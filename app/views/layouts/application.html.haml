@@ -54,7 +54,7 @@
             Events
         - if @current_user && @current_user.user_relations.any?
         
-          %li.title My Pages
+          %li.title Management
           - @current_user.user_relations.each do |relation|
             = link_to relation.relative do
               %li.item

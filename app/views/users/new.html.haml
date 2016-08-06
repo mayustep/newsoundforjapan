@@ -48,6 +48,8 @@
     .container-fluid
       %p #{@bootstrap_artist.name} is already represented.
 - else
+  .section.header
+    .container-fluid
+      %h1 Thanks for joining
   .container-fluid
-    %h1 Registration
     = render 'form', user: @user

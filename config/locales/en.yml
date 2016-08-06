@@ -13,6 +13,7 @@ en:
       user:
         email: Email
         password: Password
+        name: Name
       booking:
         bookee_id: Bookee
         price: Price
@@ -20,14 +21,24 @@ en:
         booker_confirmed_at: Booker confirmed at
         booker_id: Booker
         bookee_confirmed_at: Bookee confirmed at
+        booker: Booker
       session:
         email: Email
         password: Password
+      artist_event:
+        artist: Artist
+      booking/event:
+        start_at: Event start at
+      event:
+        name: Name
+        start_at: Start at
     models:
       artist: Artist
       user: User
       booking: Booking
       session: Session
+      artist_event: Artist event
+      event: Event
   application_mailer:
     payment_confirmation:
       thank_you: "%{fund} confirmation"
@@ -166,6 +177,7 @@ en:
       header:
         one: 1 error prohibited this %{model} from being saved
         other: "%{count} errors prohibited this %{model} from being saved"
+    connection_refused: 
   funds:
     edit:
       back: Back
@@ -205,12 +217,17 @@ en:
       update: Update %{model}
       artist:
         update: Update Artist
+        create: Create Artist
       user:
         create: Create User
+        update: Update User
       booking:
         create: Create Booking
+        update: Update Booking
       session:
         create: Create Session
+      event:
+        update: Update Event
     label:
       artist:
         name: 
@@ -218,6 +235,7 @@ en:
       user:
         email: 
         password: 
+        name: 
       booking:
         bookee_id: 
         currency: 
@@ -228,6 +246,10 @@ en:
       session:
         password: 
         email: 
+      booking[event_attributes]:
+        start_at: 
+      event:
+        name: 
   ja: 日本語
   layouts:
     application:
@@ -315,9 +337,28 @@ en:
       description: We would like to list you in our official roster and represent you as official agent in Japan.
       feature1: Personal, customizable and multilingual artist profile
       feature2: Automated booking system for promoters
-      feature4: No need for managers or management fees
+      feature4: An industry-standard 15% management fee.
       feature5: Competetive rates and guarantees
       feature6: Accept online payments with credit cards
       feature3: Unbiased translations and mediation between languages
       call_to_action: If you like to join us on this journey, click the button below
       agree: I, %{name}, agree to be listed and represented by New Sound For Japan
+    edit:
+      update_password: Update Password
+  artists:
+    show:
+      unbookable: 
+    index:
+      artists_represented_by_us: 
+  This artist can not be booked: 
+  pages:
+    index:
+      header: We represent DJs
+      join: Join the platform and get paid for DJing in Japan.
+      join_with_email: 
+      join_with_facebook: 
+      point1: Payment before the gig
+      point2: 15% management fee
+      point3: Credit Cards accepted
+      point4: No Bullshit
+      tagline: New Sound For Japan is an artist agency that is built on transparency and fairness.

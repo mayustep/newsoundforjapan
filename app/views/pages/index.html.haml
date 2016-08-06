@@ -1,22 +1,37 @@
-.main_section
-  .wrap.container-fluid
-    :scss
-      .reboot {
-        text-align: center;
-        img {
-          height: 400px;
-        }
-        h2 {
-          margin-top: 50px;
-          margin-bottom: 30px;
-        }
-      }
-    .reboot
-      = image_tag 'newsoundforjapan.png'
-      %h2 Quality Sound. Quality People.
-      %p 
-        Get ready, because we're bringing back the good shit.
-      %p
-        Beta Coming Soon.<br>
-        = link_to 'Check it out on GitHub', 'http://github.com/buhrmi/newsoundforjapan'
-      
+
+.section.landing
+  
+  %h1= t '.header' #We represent DJs in Japan
+
+  .tagline= t '.tagline'# New Sound For Japan is an artist agency that is built on transparency and fairness.
+  
+  
+  %ul.points
+    %li 
+      %i.fa.fa-check
+      = t '.point1' #Payment before the gig
+    %li
+      %i.fa.fa-check
+      = t '.point2' #15% management fee
+    %li
+      %i.fa.fa-check
+      = t '.point3' #Credit Cards accepted
+    %li
+      %i.fa.fa-check
+      = t '.point4' #No Bullshit
+    
+  
+  .join
+    %p= t '.join' # Join the platform, provide your bank details and get paid for DJing in Japan.
+  
+    = link_to '/auth/facebook', :class => 'facebook button' do
+      %i.fa.fa-facebook
+      = t('.join_with_facebook')
+    = link_to '/users/new', :class => 'email button' do
+      %i.fa.fa-envelope
+      = t('.join_with_email')
+    
+  
+:coffee
+    
+  

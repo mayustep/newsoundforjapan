@@ -12,9 +12,62 @@
   border-bottom: 1px solid darken($bodyColor, 10);
   padding-bottom: 20px;
   margin-bottom: 20px;
+  h1 {
+    text-transform: uppercase;
+    font-weight: normal;
+  }
 }
 
 .section.bio {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.section.landing {
+  margin-top: -20px;
+  background: asset-url('marketing/backdrop.jpg');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding-top: 60px;
+  h1 {
+    display: inline-block;
+    font-size: 62px;
+    padding: 40px 80px;
+    text-transform: uppercase;
+    background-color: rgba(0,0,0,0.5);
+    border-top: 5px solid $brandColor;
+  }
+  .tagline {
+    padding: 40px 80px;
+    background-color: rgba(0,0,0,0.5);
+    font-size: 26px;
+    margin-top: 100px;
+  }
+  .points {
+    padding: 40px 80px;
+    background-color: rgba(0,0,0,0.5);
+    width: 600px;
+    display: inline-block;
+    text-align: left;
+    
+  }
+  .join {
+    font-size: 26px;
+    margin-top: 50px;
+    padding: 80px 80px;
+    background-color: rgba(0,0,0,0.9);
+    border-bottom: 5px solid $brandColor;
+    p {
+      margin-bottom: 30px;
+    }
+    .facebook {
+      padding: 12px 33px;
+      background-color: #3b5998;
+    }
+    .email {
+      padding: 12px 33px;
+      background-color: $brandColor;
+    }
+  }
 }

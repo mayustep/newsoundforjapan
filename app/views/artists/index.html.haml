@@ -2,23 +2,23 @@
   .container-fluid
     - if @current_user
       .options
-        = link_to "Add Artist", new_artist_path, :class => 'button'
-    %h1 Artists
-        
-          
+        = link_to "Join us", new_artist_path, :class => 'button'
+    %h1 Artist Roster
+  
 
 .container-fluid
   .row
     - @artists.each do |artist|
       .artist.col-lg-4.col-md-6.col-sm-12
-        .inner
-          - if artist.image
-            .image{:style=>"background-image:url(#{artist.image.thumb('300x300').url})"}
-          - else
-            .image.empty
-          = link_to '', artist, :class => 'artist_link'
-          .info
-            .name
-              = artist.name
-            .booking
-              = link_to 'Available', artist
+        .content
+          .inner
+            - if artist.image
+              .image{:style=>"background-image:url(#{artist.image.thumb('300x300').url})"}
+            - else
+              .image.empty
+            = link_to '', artist, :class => 'artist_link'
+            .info
+              .name
+                = artist.name
+              .booking
+                = link_to 'Available', artist
