@@ -1,3 +1,43 @@
-// Place all the styles related to the bookings controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'globals';
+
+.progress {
+  display: flex;
+  margin-bottom: 30px;
+.progress_box {
+  border: 2px solid $boxColor;
+  display: inline-block;
+  flex-grow: 1;
+  flex-basis: 25%;
+  margin-right: 25px;
+  
+  vertical-align: top;
+
+  color: #EEEEFE;
+  &:last-child {
+    margin-right: 0;
+  }
+  &.done {
+    color: #9999A9;
+  }
+  h2 {
+    padding: 5px 10px;
+    background: $boxColor;
+    span {
+      padding: 2px 12px;
+      background: $bodyColor;
+      border-radius: 12px;
+      margin-right: 5px;
+    }
+  }
+  p {
+    margin: 10px 20px;
+  }
+  &.active {
+    
+    h2 span {
+      background: $brandColor;
+    }
+  }
+  
+}
+}

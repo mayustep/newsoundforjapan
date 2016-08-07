@@ -1,15 +1,64 @@
 .section.header
   .container-fluid
-    %h1 Booking #{@booking.bookee.name}
+    %h1= t '.booking', :artist => @booking.bookee.name # Booking #{@booking.bookee.name}
     
 .section.details
   .container-fluid
-    %p= link_to 'Show Event', @booking.event
-    %p Date: #{@booking.event.start_at}
-    %p Guarantee: #{@booking.price} #{@booking.currency}
-    - if @booking.bookee.managed_by?(@current_user)
-      - if @booking.bookee_confirmed_at
-        %p Offer has been accepted
-      - else
-        = link_to 'Accept Offer', booking_path(@booking, :booking => {:accept => true}), :method => 'PUT', :class => 'button'
+    .progress
+      .progress_box.done
+        %h2
+          %span 1
+          = t '.offer' # Offer
+        %p
+          %i.fa.fa-check
+          = t '.notified', :artist => @booking.bookee.name ##{@booking.bookee.name} has been notified
+      .progress_box{:class => "#{@booking.bookee_confirmed_at ? 'done' : 'active'}"}
+        %h2 
+          %span 2
+          = t '.confirmation' # Confirmation
+        - if @booking.bookee_confirmed_at
+          %p 
+            %i.fa.fa-check
+            = t '.accepted', :artist => @booking.bookee.name # %{artist} has accepted the offer.
+        - else
+          %p
+            %i.fa.fa-hourglass
+            = t '.waiting', :artist => @booking.bookee.name # Waiting for #{@booking.bookee.name}
+      .progress_box
+        %h2
+          %span 3
+          = t '.payment' # Payment
+        - if @booking.bookee_confirmed_at && @booking.payment.confirmed
+          %p= t '.payment_received' # Payment received.
+        - elsif @booking.bookee_confirmed_at
+          %p= t '.waiting_for_payment' # Waiting for payment  
+        - elsif @current_user == @booking.booker
+          %p= t '.waiting_for_confirmation', :artist => @booking.bookee.name # You can make the payment after #{@booking.bookee.name} confirmed the offer.
+      .progress_box
+        %h2
+          %span 4
+          = t '.done'
+        %p= t '.have_fun' #Have fun at the event.
+    
+    .nice_form
+      %h2= t '.offer_details' #Offer Details
+      .field
+        %label= t '.event'
+        .inputs
+          %p
+            = t '.date'
+            = @booking.event.start_at
+          %p= link_to t('.show_event'), @booking.event
+      .field
+        %label= t '.guarantee'
+        .inputs
+          %p #{@booking.price} #{@booking.currency}
+      - if @booking.bookee.managed_by?(@current_user)
+        - if !@booking.bookee_confirmed_at
+          .field
+            .inputs
+              = link_to t('.accept_offer'), booking_path(@booking, :booking => {:accept => true}), :method => 'PUT', :class => 'button'
+    
+    
+  
         

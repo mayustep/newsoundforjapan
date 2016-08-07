@@ -55,15 +55,19 @@
           %li.item{:class => "#{'on' if params[:controller] == 'events'}"} 
             %i.fa.fa-heart
             Events
-        - if @current_user && @current_user.user_relations.any?
-        
+        - if @current_user && @current_user.user_relations.any? || @current_user.bookings.active.count > 0
           %li.title Management
-          - @current_user.user_relations.each do |relation|
-            = link_to relation.relative do
-              %li.item
-                - if relation.relative.events.upcoming.count > 0
-                  .badge= relation.relative.events.upcoming.count
-                = relation.relative.name
+        - @current_user.user_relations.each do |relation|
+          = link_to relation.relative do
+            %li.item
+              - if relation.relative.events.upcoming.count > 0
+                .badge= relation.relative.events.upcoming.count
+              = relation.relative.name
+        - if @current_user.bookings.active.count > 0
+          = link_to bookings_url do
+            %li.item
+              .badge= @current_user.bookings.active.count
+              Bookings
     %main
       = alert
       = notice

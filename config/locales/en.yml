@@ -3,6 +3,7 @@ en:
   activerecord:
     attributes:
       artist:
+        email: Email
         name: Name
         representation_agreed: Representation agreed
       artist_event:
@@ -46,10 +47,6 @@ en:
     payment_confirmation:
       thank_you: "%{fund} confirmation"
   artists:
-    index:
-      artists_represented_by_us: 
-    show:
-      unbookable: 
     edit:
       agree: I, %{name}, agree to be listed and represented by New Sound For Japan
       call_to_action: If you like to join us on this journey, click the button below
@@ -65,6 +62,10 @@ en:
       representation_agreement: Agreement
       thank_you: Thank You
       thank_you_2: " To start using the platform, please confirm your email address and choose a password."
+    index:
+      artists_represented_by_us: 
+    show:
+      unbookable: 
   bookings:
     new:
       booking_guide: 
@@ -73,8 +74,27 @@ en:
       booking_step_2: 
       booking_step_3: 
       booking_step_4: 
-      guarantee: 
+      guarantee: Guarantee
       thanks: 
+    show:
+      accept_offer: Accept Offer
+      accepted: "%{artist} has accepted the Offer."
+      booking: Booking
+      confirmation: Confirmation
+      date: Date
+      done: Done
+      event: Event
+      guarantee: Guarantee
+      have_fun: Have fun
+      notified: "%{artist} has been notified."
+      offer: Offer
+      offer_details: Offer details
+      payment: Payment
+      payment_received: Payment received
+      show_event: Go to event
+      waiting: Waiting for %{artist}.
+      waiting_for_confirmation: You can make the payment after %{artist} confirmed the offer.
+      waiting_for_payment: Waiting for Payment
   date:
     abbr_day_names:
     - Sun
@@ -211,6 +231,7 @@ en:
       header:
         one: 1 error prohibited this %{model} from being saved
         other: "%{count} errors prohibited this %{model} from being saved"
+  event: 
   funds:
     edit:
       back: Back
@@ -240,10 +261,12 @@ en:
       "¥‎1000": "¥‎1000"
       "¥‎2000": "¥‎2000"
       "¥‎5000": "¥5000"
+  guarantee: 
   hello: Hello world
   helpers:
     label:
       artist:
+        email: 
         name: 
         representation_agreed: 
       booking:
@@ -256,7 +279,7 @@ en:
         price: Guarantee
         transportation_provided: Flights and Transportation provided
       booking[event_attributes]:
-        start_at: Date of performance
+        start_at: 
       event:
         name: 
       session:

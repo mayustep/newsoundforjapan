@@ -3,6 +3,7 @@ ja:
   activerecord:
     attributes:
       artist:
+        email: 
         name: 
         representation_agreed: 
       artist_event:
@@ -46,10 +47,6 @@ ja:
     payment_confirmation:
       thank_you: "%{fund} confirmation"
   artists:
-    index:
-      artists_represented_by_us: 
-    show:
-      unbookable: 
     edit:
       agree: 私%{name}は、New Sound For Japan の一員となることに同意します。
       call_to_action: あなたが私たちとこの旅に出たいなら下のボタンを押してください。
@@ -65,7 +62,10 @@ ja:
       representation_agreement: 同意
       thank_you: Thank You
       thank_you_2: メールアドレスとパスワードを設定してください。
-
+    index:
+      artists_represented_by_us: 
+    show:
+      unbookable: 
   bookings:
     new:
       booking_guide: 
@@ -74,8 +74,27 @@ ja:
       booking_step_2: 
       booking_step_3: 
       booking_step_4: 
-      guarantee: 
+      guarantee: ギャラ
       thanks: 
+    show:
+      accept_offer: 
+      accepted: 
+      booking: 
+      confirmation: 
+      date: 
+      done: 
+      event: 
+      guarantee: ギャラ
+      have_fun: 
+      notified: 
+      offer: 
+      offer_details: 
+      payment: 
+      payment_received: 
+      show_event: 
+      waiting: 
+      waiting_for_confirmation: 
+      waiting_for_payment: 
   date:
     abbr_day_names:
     - 日
@@ -206,6 +225,7 @@ ja:
       header:
         one: "%{model}にエラーが発生しました"
         other: "%{model}に%{count}個のエラーが発生しました"
+  event: 
   funds:
     edit:
       back: 戻る
@@ -235,10 +255,12 @@ ja:
       "¥‎1000": "¥‎1000"
       "¥‎2000": "¥‎2000"
       "¥‎5000": "¥‎5000"
+  guarantee: 
   hello: Hello world
   helpers:
     label:
       artist:
+        email: 
         name: 
         representation_agreed: 
       booking:

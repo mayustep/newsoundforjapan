@@ -109,22 +109,23 @@ body > nav {
     text-transform: uppercase;
     padding: 0 10px 0 26px;
     height: 50px;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     .badge {
       float: right;
       background-color: $brandColor;
-      padding: 4px 4px;
+      padding: 4px 7px;
       height: 28px;
       margin-top: 11px;
       vertical-align: middle;
       line-height: 20px;
-      font-size: 20px;
+      font-size: 18px;
+      font-weight: bold;
       border-radius: 10px;
     }
   }
   li.item.on, li.item:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.2);
     box-shadow: inset 10px 0 0 $brandColor;
     i.fa {
       color: $brandColor;
@@ -256,5 +257,12 @@ button, .button, input[type=submit] {
         width: auto;
       }
     }
+  }
+}
+
+.box {
+  background-color: $boxColor;
+  &.active {
+    border-top: 4px solid $brandColor;
   }
 }

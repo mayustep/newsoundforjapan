@@ -21,6 +21,7 @@ class User < ApplicationRecord
   has_many :funds
   has_many :identities
   has_many :user_relations
+  has_many :bookings, :foreign_key => 'booker_id'
   
   attr_accessor :bootstrap_artist_id
   

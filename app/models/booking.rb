@@ -26,6 +26,8 @@ class Booking < ApplicationRecord
   
   accepts_nested_attributes_for :event
   
+  scope :active, -> { joins(:event).where('events.start_at > ?', Time.now) }
+  
   after_create do
     ApplicationMailer.booking_inquiry(self).deliver_later
     Message.create(:topicable => self, :text => 'Booking request has been received.')
