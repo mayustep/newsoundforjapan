@@ -79,13 +79,13 @@ en:
     show:
       accept_offer: Accept Offer
       accepted: "%{artist} has accepted the Offer."
-      booking: Booking
+      booking: Booking %{artist}
       confirmation: Confirmation
       date: Date
       done: Done
       event: Event
       guarantee: Guarantee
-      have_fun: Have fun
+      have_fun: Have fun at the Event!
       notified: "%{artist} has been notified."
       offer: Offer
       offer_details: Offer details
@@ -93,7 +93,7 @@ en:
       payment_received: Payment received
       show_event: Go to event
       waiting: Waiting for %{artist}.
-      waiting_for_confirmation: You can make the payment after %{artist} confirmed the offer.
+      waiting_for_confirmation: You can make the payment after %{artist} confirmed the Offer.
       waiting_for_payment: Waiting for Payment
   date:
     abbr_day_names:
