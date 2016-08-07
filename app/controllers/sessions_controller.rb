@@ -55,9 +55,8 @@ class SessionsController < ApplicationController
     
     respond_to do |format|
       if @session.save
-        if session[:bootstrap_artist_id] && session[:agreed]
+        if session[:bootstrap_artist_id]
           @bootstrap_artist = Artist.find(session[:bootstrap_artist_id])
-          @bootstrap_artist.update(:representation_agreed => true)
           UserRelation.create(:relation => 'is', :user_id => @session.user_id, :relative => @bootstrap_artist)
         end
         session.clear

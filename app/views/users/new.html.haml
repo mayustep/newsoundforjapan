@@ -1,55 +1,5 @@
-- if @bootstrap_artist
-  - if !@bootstrap_artist.user
-    - if session[:agreed]
-      .section.header
-        .container-fluid
-          %h1= t '.thank_you'
-      .container-fluid
-        %p= t '.thank_you_2'
-        = render 'form', user: @user
-    - else
-      .section.header
-        .container-fluid
-          %h1= t '.representation_agreement'
-      .container-fluid
-        = image_tag 'newsoundforjapantext2.png', :width => 600
-        
-        .intro_section
-          %p
-            %i.fa.fa-heart
-            = t '.hello_artist', :name => @bootstrap_artist.name
-        .description_section
-          %p= t '.description'
-        .features_section
-          %p= t '.features'
-          %ul
-            %li
-              %i.fa.fa-check
-              = t '.feature1' #Personal, customizable and multilingual artist profile
-            %li
-              %i.fa.fa-check
-              = t '.feature2' #Unbiased translations and mediation between languages
-            %li
-              %i.fa.fa-check
-              = t '.feature3' #Automated booking system for promoters
-            %li
-              %i.fa.fa-check
-              = t '.feature4' #No need for managers or management fees
-            %li
-              %i.fa.fa-check
-              = t '.feature5' #Competetive rates and guarantees
-            %li
-              %i.fa.fa-check
-              = t '.feature6' #Accept payments online using credit cards
-        .call_to_action_section
-          %p= t '.call_to_action'
-          = link_to t('.agree', :name => @bootstrap_artist.name), url_for(:agreed => true), :class => 'button'
-  - else
-    .container-fluid
-      %p #{@bootstrap_artist.name} is already represented.
-- else
-  .section.header
-    .container-fluid
-      %h1 Thanks for joining
+.section.header
   .container-fluid
-    = render 'form', user: @user
+    %h1 Thanks for joining
+.container-fluid
+  = render 'form', user: @user

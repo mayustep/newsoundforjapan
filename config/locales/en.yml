@@ -50,6 +50,21 @@ en:
       artists_represented_by_us: 
     show:
       unbookable: 
+    edit:
+      agree: I, %{name}, agree to be listed and represented by New Sound For Japan
+      call_to_action: If you like to join us on this journey, click the button below
+      description: We would like to list you in our official roster and represent you as official agent in Japan.
+      feature1: Personal, customizable and multilingual artist profile
+      feature2: Automated booking system for promoters
+      feature3: Unbiased translations and mediation between languages
+      feature4: An industry-standard 15% management fee.
+      feature5: Competetive rates and guarantees
+      feature6: Accept online payments with credit cards
+      features: It's still early, but here is a list of features we are planning to provide
+      hello_artist: Hello %{name}. Welcome to New Sound For Japan!
+      representation_agreement: Agreement
+      thank_you: Thank You
+      thank_you_2: " To start using the platform, please confirm your email address and choose a password."
   bookings:
     new:
       booking_guide: 

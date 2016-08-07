@@ -29,6 +29,7 @@ class ArtistsController < ApplicationController
 
   # GET /artists/1/edit
   def edit
+    @artist.update :representation_agreed => true if params[:agreed]      
   end
 
   # POST /artists

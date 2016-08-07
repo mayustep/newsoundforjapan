@@ -1,13 +1,51 @@
-.section.header
+- if !@artist.representation_agreed
+  .section.header
+    .container-fluid
+      %h1= t '.representation_agreement'
   .container-fluid
-    %h1 Edit Artist
+    = image_tag 'newsoundforjapantext2.png', :width => 600
     
-.container-fluid
-  - if @artist.user
-    This page is owned by #{@artist.user.name}
-  - else
-    .bootstrap
-      %p 
-        To claim this artist, use this link:
-        = link_to 'Bootstrap me', new_user_path(:secret => make_secret(:bootstrap_artist_id => @artist.id))
-  = render 'form', artist: @artist
+    .intro_section
+      %p
+        %i.fa.fa-heart
+        = t '.hello_artist', :name => @artist.name
+    .description_section
+      %p= t '.description'
+    .features_section
+      %p= t '.features'
+      %ul
+        %li
+          %i.fa.fa-check
+          = t '.feature1' #Personal, customizable and multilingual artist profile
+        %li
+          %i.fa.fa-check
+          = t '.feature2' #Unbiased translations and mediation between languages
+        %li
+          %i.fa.fa-check
+          = t '.feature3' #Automated booking system for promoters
+        %li
+          %i.fa.fa-check
+          = t '.feature4' #No need for managers or management fees
+        %li
+          %i.fa.fa-check
+          = t '.feature5' #Competetive rates and guarantees
+        %li
+          %i.fa.fa-check
+          = t '.feature6' #Accept payments online using credit cards
+    .call_to_action_section
+      %p= t '.call_to_action'
+      = link_to t('.agree', :name => @artist.name), url_for(:agreed => true), :class => 'button'
+- else
+  .section.header
+    .container-fluid
+      %h1 Edit Artist
+      
+  .container-fluid
+    - if @artist.user
+      This page is owned by #{@artist.user.name}
+    - else
+      .bootstrap
+        %p 
+          To claim this artist, use this link:
+          = link_to 'Bootstrap me', new_user_path(:secret => make_secret(:bootstrap_artist_id => @artist.id))
+    = render 'form', artist: @artist

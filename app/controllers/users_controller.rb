@@ -26,16 +26,6 @@ class UsersController < ApplicationController
   #
   # GET /users/new
   def new
-    if session[:bootstrap_artist_id]
-      @bootstrap_artist = Artist.find(session[:bootstrap_artist_id])
-      if params[:agreed]
-        if @current_user
-          @bootstrap_artist.claim_by!(@current_user)
-          return redirect_to edit_artist_path(@bootstrap_artist), :notice => 'You claimed this artist.'
-        end
-        session[:agreed] = true
-      end
-    end
     @user = User.new
   end
   #
@@ -50,7 +40,17 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created. You can now log in.' }
+        if session[:bootstrap_artist_id]
+          @bootstrap_artist = Artist.find(session[:bootstrap_artist_id])
+          UserRelation.create(:relation => 'is', :user_id => @user.id, :relative => @bootstrap_artist)
+        end
+        session.clear
+        session[:user_id] = @user.id
+        if @bootstrap_artist
+          format.html { redirect_to edit_artist_path(@bootstrap_artist) }
+        else
+          format.html { redirect_to @user, notice: 'User was successfully created.' }
+        end
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }

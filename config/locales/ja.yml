@@ -50,6 +50,22 @@ ja:
       artists_represented_by_us: 
     show:
       unbookable: 
+    edit:
+      agree: 私%{name}は、New Sound For Japan の一員となることに同意します。
+      call_to_action: あなたが私たちとこの旅に出たいなら下のボタンを押してください。
+      description: 私たちはあなたが日本の公式のエージェントとして参加してくれることを願っています。
+      feature1: 多言語でカスタマイズ可能なアーティストプロフィール
+      feature2: プロモーターのための自動化されたブッキングシステム
+      feature3: 多言語間での公正な翻訳と取引を提供
+      feature4: 管理費は業界標準の１５パーセントほど
+      feature5: 適切なギャラ
+      feature6: クレジットカードでオンライン決済ができます
+      features: 以上が皆さんに提供しようと計画しているサービスの特徴です。
+      hello_artist: こんにちは%{name}さん。New Sound For Japanへようこそ！
+      representation_agreement: 同意
+      thank_you: Thank You
+      thank_you_2: メールアドレスとパスワードを設定してください。
+
   bookings:
     new:
       booking_guide: 
