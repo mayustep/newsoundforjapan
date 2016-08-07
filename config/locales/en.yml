@@ -86,12 +86,15 @@ en:
       event: Event
       guarantee: Guarantee
       have_fun: Have fun at the Event!
+      hotel_provided: Hotel (Lodging, Food, etc.) provided by the Promoter
       notified: "%{artist} has been notified."
       offer: Offer
       offer_details: Offer details
+      offer_expires_in: Offer expires in %{time}.
       payment: Payment
       payment_received: Payment received
       show_event: Go to event
+      transportation_provided: Transportation (Flights, Shuttle, etc.) provided by the Promoter
       waiting: Waiting for %{artist}.
       waiting_for_confirmation: You can make the payment after %{artist} confirmed the Offer.
       waiting_for_payment: Waiting for Payment

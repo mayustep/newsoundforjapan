@@ -86,12 +86,15 @@ ja:
       event: 
       guarantee: ギャラ
       have_fun: 
+      hotel_provided: 
       notified: 
       offer: 
       offer_details: 
+      offer_expires_in: 
       payment: 
       payment_received: 
       show_event: 
+      transportation_provided: 
       waiting: 
       waiting_for_confirmation: 
       waiting_for_payment: 

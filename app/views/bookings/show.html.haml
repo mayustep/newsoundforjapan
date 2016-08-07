@@ -40,7 +40,7 @@
           = t '.done'
         %p= t '.have_fun' #Have fun at the event.
     
-    .nice_form
+    .nice_form.offer_details
       %h2= t '.offer_details' #Offer Details
       .field
         %label= t '.event'
@@ -52,7 +52,23 @@
       .field
         %label= t '.guarantee'
         .inputs
-          %p #{@booking.price} #{@booking.currency}
+          %p ¥‎ #{@booking.price} #{@booking.currency}
+          - if @booking.hotel_provided
+            %p
+              %i.fa.fa-check
+              = t '.hotel_provided'
+          - else
+            %p
+              %i.fa.fa-alert
+              %strike= t '.hotel_provided'
+          - if @booking.transportation_provided
+            %p
+              %i.fa.fa-check
+              = t '.transportation_provided'
+          - else
+            %p
+              %i.fa.fa-warning
+              %strike= t '.transportation_provided'
       - if @booking.bookee.managed_by?(@current_user)
         - if !@booking.bookee_confirmed_at
           .field
