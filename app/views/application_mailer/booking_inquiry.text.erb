@@ -1,0 +1,23 @@
+Hello <%= @booking.bookee.name %>,
+
+you have received a booking offer from <%= @booking.booker.display_name %>.
+
+The offered guarantee is <%= @booking.price %> JPY (around XXX USD), including a 15% management fee.
+The event date is <%= @booking.event.start_at %>.
+
+<% if @booking.hotel_provided && @booking.transportation_provided %>
+You will also receive a complete transportation and hotel package provided by the promoter.
+<% elsif @booking.hotel_provided %>
+You will also receive hotel and lodging (transportation not included) provided by the promoter.
+<% elsif @booking.transportation_provided %>
+You will also receive transportation (hotel not included) provided by the promoter.
+<% end %>
+
+You can view the details using this private link:
+<%= booking_url(@booking, :secret => make_secret(:bootstrap_artist_id => @booking.bookee.id)) %>
+
+Please let us know if you are interested. If yes, please respond to this inquiry within 48 hours. After 48 hours, the offer will be automatically cancelled.
+
+Thanks,
+
+New Sound For Japan

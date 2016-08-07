@@ -22,6 +22,8 @@ class User < ApplicationRecord
   has_many :identities
   has_many :user_relations
   
+  attr_accessor :bootstrap_artist_id
+  
   def self.find_or_create_from_auth_hash(auth_hash, override_user = nil)
     identity = Identity.where(:provider => auth_hash[:provider], :provider_id => auth_hash[:uid]).first_or_create do |identity|
       identity.user = override_user || User.where(:email => auth_hash[:info][:email]).first_or_create(:password => SecureRandom.base64(10)[0..7])
@@ -34,6 +36,10 @@ class User < ApplicationRecord
     user.image_url ||= auth_hash[:info][:image]
     user.save
     user
+  end
+
+  def admin?
+    self.id == 1 || self.id == 2 || self.id == 3
   end
 
   def display_name

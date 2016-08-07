@@ -1,1 +1,46 @@
-= render 'form', booking: @booking
+.section.header
+  .container-fluid
+    %h1 Book #{@booking.bookee.name}
+.section.guide
+  .container-fluid
+    %h2= t '.thanks', :artist => @booking.bookee.name # Thank you for your interest in %{artist}
+    %p= t '.booking_guide' # You can book this artist for your event. This is how it usually goes:
+    %p= t '.booking_step_1' # Make an offer
+    %p= t '.booking_step_2' # Artist confirms the offer
+    %p= t '.booking_step_3' # Make payment
+    %p= t '.booking_step_4' # Enjoy the event
+.section.form
+  .container-fluid
+    .nice_form
+      = form_for(@booking) do |f|
+        = f.hidden_field :bookee_id
+        = f.hidden_field :bookee_type
+        = f.hidden_field :currency, :value => 'JPY'
+        - if @booking.errors.any?
+          #error_explanation
+            %h2
+              = pluralize(@booking.errors.count, "error")
+              prohibited this @booking from being saved:
+            %ul
+              - @booking.errors.full_messages.each do |message|
+                %li= message
+        = f.fields_for :event do |ef|
+          .field
+            = ef.label :start_at
+            = ef.text_field :start_at, :class => 'datepicker'
+        .field
+          = f.label :price
+          .inputs
+            ¥
+            = f.text_field :price, :class => 'price'
+            JPY
+        .field
+          .inputs
+            = f.check_box :transportation_provided
+            = f.label :transportation_provided
+        .field
+          .inputs
+            = f.check_box :hotel_provided
+            = f.label :hotel_provided
+        .actions
+          = f.submit

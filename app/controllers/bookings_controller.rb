@@ -15,6 +15,7 @@ class BookingsController < ApplicationController
   # GET /bookings/new
   def new
     @booking = Booking.new(booking_params)
+    @booking.price = @booking.bookee.default_price
     @booking.event = Event.new
   end
 
@@ -30,7 +31,6 @@ class BookingsController < ApplicationController
     
     respond_to do |format|
       if @booking.save
-        # TODO: send email to bookee
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else

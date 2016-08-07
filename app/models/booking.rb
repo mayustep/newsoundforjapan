@@ -25,4 +25,9 @@ class Booking < ApplicationRecord
   validates :price, :numericality => {:greater_than_or_equal_to => 50} # minimum JPY required by stripe
   
   accepts_nested_attributes_for :event
+  
+  after_create do
+    ApplicationMailer.booking_inquiry(self).deliver_later
+    Message.create(:topicable => self, :text => 'Booking request has been received.')
+  end
 end

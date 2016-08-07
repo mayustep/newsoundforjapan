@@ -14,7 +14,9 @@ en:
         booker_confirmed_at: Booker confirmed at
         booker_id: Booker
         currency: Currency
+        hotel_provided: Hotel provided
         price: Price
+        transportation_provided: 
       booking/event:
         start_at: Event start at
       event:
@@ -48,6 +50,16 @@ en:
       artists_represented_by_us: 
     show:
       unbookable: 
+  bookings:
+    new:
+      booking_guide: 
+      booking_step_1: 
+      booking_step_1_detail: 
+      booking_step_2: 
+      booking_step_3: 
+      booking_step_4: 
+      guarantee: 
+      thanks: 
   date:
     abbr_day_names:
     - Sun
@@ -225,9 +237,11 @@ en:
         booker_confirmed_at: 
         booker_id: 
         currency: 
-        price: 
+        hotel_provided: 
+        price: Guarantee
+        transportation_provided: Flights and Transportation provided
       booking[event_attributes]:
-        start_at: 
+        start_at: Date of performance
       event:
         name: 
       session:
@@ -244,8 +258,8 @@ en:
         create: Create Artist
         update: Update Artist
       booking:
-        create: Create Booking
-        update: Update Booking
+        create: Make Offer
+        update: Update Offer
       create: Create %{model}
       event:
         update: Update Event

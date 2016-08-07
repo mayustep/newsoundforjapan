@@ -14,7 +14,9 @@ ja:
         booker_confirmed_at: 
         booker_id: 
         currency: 
+        hotel_provided: 
         price: 
+        transportation_provided: 
       booking/event:
         start_at: 
       event:
@@ -48,6 +50,16 @@ ja:
       artists_represented_by_us: 
     show:
       unbookable: 
+  bookings:
+    new:
+      booking_guide: 
+      booking_step_1: 
+      booking_step_1_detail: 
+      booking_step_2: 
+      booking_step_3: 
+      booking_step_4: 
+      guarantee: 
+      thanks: 
   date:
     abbr_day_names:
     - 日
@@ -219,7 +231,9 @@ ja:
         booker_confirmed_at: 
         booker_id: 
         currency: 
-        price: 
+        hotel_provided: 
+        price: ギャラ
+        transportation_provided: 
       booking[event_attributes]:
         start_at: 
       event:
@@ -238,8 +252,8 @@ ja:
         create: 
         update: 
       booking:
-        create: 
-        update: 
+        create: Make Offer
+        update: Update Offer
       create: 登録する
       event:
         update: 
@@ -315,7 +329,7 @@ ja:
   pages:
     index:
       header: 私たちはDJを代表します
-      join: プラットフォームに参加して日本でのDJ活動の支払いを受けましょう。
+      join: 参加して日本でのDJ活動の支払いを受けましょう。
       join_with_email: 
       join_with_facebook: 
       point1: 出演前の支払い

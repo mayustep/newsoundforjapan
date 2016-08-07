@@ -3,10 +3,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_action :handle_secret
   before_action :reload_localization
   before_action :use_user
   before_action :set_locale
-  before_action :handle_secret
   around_action :set_tz
   around_action :atomic_posts
 
@@ -18,6 +18,14 @@ private
 
   def use_user    
     @current_user = User.find(session[:user_id]) if session[:user_id] rescue nil
+    if session[:bootstrap_artist_id]
+      if @current_user
+        @current_user.bootstrap_artist_id = session[:bootstrap_artist_id]
+      else
+        @current_user = User.new(:bootstrap_artist_id => session[:bootstrap_artist_id])
+      end
+    end
+    
   end
   
   def handle_secret
@@ -28,8 +36,8 @@ private
         bootstrap_artist = Artist.find(json['bootstrap_artist_id'])
         if !bootstrap_artist.user
           session[:agreed] = false
-          session[:bootstrap_artist_id] = json['bootstrap_artist_id']
         end
+        session[:bootstrap_artist_id] = json['bootstrap_artist_id']
       end
     end
   end

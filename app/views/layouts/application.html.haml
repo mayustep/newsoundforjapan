@@ -18,7 +18,7 @@
     %header
 
       .user_area
-        - if @current_user
+        - if @current_user && @current_user.persisted?
           - if @current_user.image
             = image_tag @current_user.image.thumb('200x200').url, :class => 'profile_image'
           - else
@@ -67,7 +67,7 @@
     %main
       = alert
       = notice
-      - if @current_user
+      - if @current_user && @current_user.persisted? && !@current_user.identities.stripe.any?
         .action_required
           %i.fa.fa-warning
           = t '.connect_stripe'

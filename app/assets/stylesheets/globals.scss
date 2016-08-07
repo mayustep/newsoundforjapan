@@ -2,6 +2,7 @@ $navWidth: 280px;
 $headerHeight: 70px;
 $brandColor: #bf256c;
 $bodyColor: #3b3e48;
+$boxColor: #282c34;
 
 @mixin aspect-ratio($width, $height) {
   position: relative;

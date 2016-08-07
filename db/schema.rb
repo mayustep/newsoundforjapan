@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805082308) do
+ActiveRecord::Schema.define(version: 20160806235433) do
 
   create_table "artist_events", force: :cascade do |t|
     t.integer  "artist_id"
@@ -41,10 +41,12 @@ ActiveRecord::Schema.define(version: 20160805082308) do
     t.string   "currency"
     t.datetime "bookee_confirmed_at"
     t.datetime "booker_confirmed_at"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "bookee_type"
     t.integer  "event_id"
+    t.boolean  "hotel_provided"
+    t.boolean  "transportation_provided"
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -96,6 +98,17 @@ ActiveRecord::Schema.define(version: 20160805082308) do
     t.integer  "expires_at"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "topicable_id"
+    t.string   "topicable_type"
+    t.text     "text"
+    t.string   "sender_email"
+    t.integer  "sender_id"
+    t.string   "sender_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "pages", id: false, force: :cascade do |t|

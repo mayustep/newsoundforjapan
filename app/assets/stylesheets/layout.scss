@@ -221,10 +221,10 @@ button, .button, input[type=submit] {
 .field {
   margin-bottom: 10px;
   label {
-    display: block;
+    // display: block;
   }
   input[type=text], input[type=password] {
-    display: block;
+    display: inline-block;
     background: darken($bodyColor, 2);
     border: 1px solid darken($bodyColor, 10);
     padding: 4px 10px;
@@ -233,6 +233,28 @@ button, .button, input[type=submit] {
     transition: all 300ms ease;
     &:hover, &:focus {
       box-shadow: 0px -2px $brandColor inset;
+    }
+    &.price {
+      width: 100px;
+    }
+  }
+}
+
+.nice_form {
+  border-top: 5px solid $brandColor;
+  background-color: $boxColor;
+  padding: 30px;
+  .field {
+    label {
+      float: left;
+      width: 200px;
+    }
+    .inputs {
+      margin-left: 200px;
+      label {
+        float: none;
+        width: auto;
+      }
     }
   }
 }

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  topicable_id: 1
+  topicable_type: MyString
+  text: MyText
+  sender_email: MyString
+  sender_id: 1
+  sender_type: MyString
+
+two:
+  topicable_id: 1
+  topicable_type: MyString
+  text: MyText
+  sender_email: MyString
+  sender_id: 1
+  sender_type: MyString

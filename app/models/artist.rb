@@ -49,11 +49,18 @@ class Artist < ApplicationRecord
   end
   
   def managed_by?(user)
-    user.present? && UserRelation.where(:relation => 'is', :user => user).any?
+    return false unless user
+    return true if UserRelation.where(:relation => 'is', :user => user).any?
+    return true if user.admin?
+    return true if user.bootstrap_artist_id == self.id
+  end
+  
+  def default_price
+    100000
   end
 
   def bookable?
-    self.user && self.user.identities.stripe.any?
+    self.email.present?
   end
   
   def calendars
